@@ -1,3 +1,12 @@
+[![wechat-group](https://badgen.net/badge/language/Spring-Boot)](https://github.com/spring-projects/spring-boot)
+[![ForFuture](https://badgen.net/badge/ForFuture/gqzdev/cyan)](http://ganquanzhong.top)
+[![github](https://badgen.net/badge/github/github?icon)](https://github.com/gqzdev)
+[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![csdn](https://badgen.net/badge/blog/ganquanzhong/red)](https://blog.csdn.net/ganquanzhong)
+[![gitee](https://badgen.net/badge/gitee/zhong96/orange)](https://gitee.com/zhong96)
 # 一、Spring Boot 入门
 
 ## 1、Spring Boot 简介
