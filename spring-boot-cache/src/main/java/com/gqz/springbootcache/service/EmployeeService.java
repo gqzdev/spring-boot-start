@@ -3,7 +3,7 @@ package com.gqz.springbootcache.service;
 import com.gqz.springbootcache.bean.Employee;
 import com.gqz.springbootcache.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
  * @date: 2019/10/10 15:28
  */
 
+@CacheConfig(cacheNames = "emp")  //抽取缓存的公共配置
 @Service
 public class EmployeeService {
 
@@ -31,6 +32,11 @@ public class EmployeeService {
      *          key: 缓存数据使用的key；可以用它来指定。
      *               默认是使用方法参数的值，  1-方法的返回值
      *               编写SpEL表达式；  #id;参数id的值  #a0 #p0 #root.args[0]
+     *               key = "#root.methodName+'['+#id+']'"
+     *               也可以自己写KenGenerator的生成策略 new KeyGenerator()
+     *
+     *
+     *
      *          keyGenerator: key的生成器
      *              可以自己指定key的生成器的组件id
      *              key/keyGenerator；二者选一使用
@@ -45,10 +51,56 @@ public class EmployeeService {
      * @author ganquanzhong
      * @date   2019/10/10 15:59
      */
-    @Cacheable(cacheNames = {"emp"})
+    @Cacheable(/*cacheNames = {"emp"}*//*,keyGenerator = "myKeyGenerator",condition = "#a0>1",unless = "#a0==2"*/)
     public Employee getEmp(Integer id){
         System.out.println("查询"+id+"号员工");
         return employeeMapper.getEmpById(id);
     }
 
+    /**
+     * @CachePut:既调用方法，又更新缓存数据
+     *      运行时机
+     *          1.先调用目标方法
+     *          2.将目标方法的返回结果缓存起来
+     * 只有CachePut有result返回结果，@Cacheable是先查看缓存的
+     * 修改了数据，并且将修改后的数据保存在缓存中（要求使用相同的key策略）
+     */
+    @CachePut(/*value = "emp",*/key = "#result.id")
+    public Employee updateEmp(Employee employee){
+        System.out.println("Update Emp"+employee);
+        employeeMapper.updateEmp(employee);
+        return employee;
+    }
+
+
+    /**
+     * 清除缓存   @CacheEvict
+     *      key：指定要删除的缓存
+     *      allEntries = true: 指定清除这个缓存中的所有数据
+     *      beforeInvocation = false： 缓存方法的禽畜是否在方法执行之前
+     *          默认代表缓存清除操作是在方法执行之后执行；如果方法中出现异常，则缓存不会清除
+     */
+    @CacheEvict(value= "emp",key = "#id")
+    public void deleteEmp(Integer id){
+        System.out.println("delete Employee"+id);
+        //employeeMapper.deleteEmpById(id);
+
+    }
+
+    /**
+     * @Caching  复杂的缓存注解
+     *
+     */
+    @Caching(
+            cacheable = {
+                    @Cacheable(value= "emp",key = "#lastName")
+            },
+            put = {
+                    @CachePut(value = "emp",key = "#result.id"),//CachePut 表明此方法必调用
+                    @CachePut(value = "emp",key = "#result.email")
+            }
+    )
+    public Employee getEmpByLastName(String lastName){
+        return employeeMapper.getEmpByLastName(lastName);
+    }
 }

@@ -68,10 +68,12 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @MapperScan("com.gqz.springbootcache.mapper") /*扫描mapper*/
 @SpringBootApplication
+
 @EnableCaching /*开启注解缓存*/
 public class SpringBootCacheDemoApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(SpringBootCacheDemoApplication.class, args);
     }
 
