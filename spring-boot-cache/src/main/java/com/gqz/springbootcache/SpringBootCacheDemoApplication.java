@@ -15,7 +15,7 @@ import org.springframework.cache.annotation.EnableCaching;
  *              1.@MapperScan指定需要扫描mapper接口所在的包
  *
  *
- * 快速体验缓存
+ *快速体验缓存
  *      步骤
  *          1.开启基于注解的缓存 @EnableCaching
  *          2.标注缓存注解即可
@@ -62,6 +62,17 @@ import org.springframework.cache.annotation.EnableCaching;
  *      核心：
  *          1.使用CacheManager【ConcurrentMapCacheManager】按照名字得到Cache【ConcurrentMap】组件
  *          2.key使用keyGenerator生成的，默认是SimpleGenerator
+ *
+ *
+ * Spring Boot默认的是使用ConcurrentMapCache ConcurrentMapCache
+ *      将数据保存在ConcurrentMap<Object,String>
+ * 开发中经常使用的缓存中间件：redis, memcached ,ehcache
+ *
+ * 整合Redis作为缓存
+ *  1.安装redis ,使用Docker安装
+ *  2.在Spring Boot应用中引入redis的starter
+ *  3.配置redis后，CacheManager切换为RedisCacheManager(自动配置注入)
+ *
  * @author ganquanzhong
  * @date   2019/10/10 15:06
 */
