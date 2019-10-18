@@ -1,0 +1,14 @@
+2019-06-10 17:31:55.584  INFO 2296 --- [main] c.g.s.SpringBoot03LoggingApplication     : Starting SpringBoot03LoggingApplication on zhong with PID 2296 (E:\IdeaProjects\spring-boot-03-logging\target\classes started by ganquanzhong in E:\IdeaProjects\spring-boot-03-logging)
+2019-06-10 17:31:55.589 DEBUG 2296 --- [main] c.g.s.SpringBoot03LoggingApplication     : Running with Spring Boot v2.1.5.RELEASE, Spring v5.1.7.RELEASE
+2019-06-10 17:31:55.590  INFO 2296 --- [main] c.g.s.SpringBoot03LoggingApplication     : No active profile set, falling back to default profiles: default
+2019-06-10 17:31:57.623  INFO 2296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 17:31:57.671  INFO 2296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 17:31:57.671  INFO 2296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 17:31:57.845  INFO 2296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 17:31:57.845  INFO 2296 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2123 ms
+2019-06-10 17:31:58.247  INFO 2296 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 17:31:58.565  INFO 2296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 17:31:58.570  INFO 2296 --- [main] c.g.s.SpringBoot03LoggingApplication     : Started SpringBoot03LoggingApplication in 3.596 seconds (JVM running for 5.117)
+2019-06-10 17:33:32.580  INFO 2296 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 17:33:32.581  INFO 2296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 17:33:32.598  INFO 2296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
