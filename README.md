@@ -5,8 +5,10 @@
 [![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
 [![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
 [![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+
 [![csdn](https://badgen.net/badge/blog/ganquanzhong/red)](https://blog.csdn.net/ganquanzhong)
 [![gitee](https://badgen.net/badge/gitee/zhong96/orange)](https://gitee.com/zhong96)
+[![cnblogs](https://badgen.net/badge/cnblogs/gqzdev/pink)](https://www.cnblogs.com/gqzdev/)
 # 一、Spring Boot 入门
 
 ## 1、Spring Boot 简介
