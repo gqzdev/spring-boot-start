@@ -21,11 +21,11 @@ public class BookService {
 
 
     //Message对象 可以获取到消息的详细信息
-    @RabbitListener(queues = "gqz")
-    public void receveGqz(Message message){
+    @RabbitListener(queues ="gqz" )
+    public void receive01(Message message){
         System.out.println("收到了消息");
-        System.out.println(message.getBody());
-        System.out.println(message.getMessageProperties());
-        System.out.println(message.toString());
+        System.out.println("message.getBody()"+message.getBody());
+        System.out.println("message.getMessageProperties()"+message.getMessageProperties());
+        System.out.println("message.toString()"+message.toString());
     }
 }
