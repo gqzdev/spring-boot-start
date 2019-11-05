@@ -1,52 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="432c2264-971e-4412-be48-22ec2b076744" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_101tec_zkclient_0_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_spring_boot_dubbo_spring_boot_starter_2_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_6_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jline_jline_0_9_94.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_yetus_audience_annotations_0_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/src/main/java/com/gqz/ticket/service/TicketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/src/main/java/com/gqz/user/ConsumerUserApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/src/main/java/com/gqz/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer-user/src/test/java/com/gqz/user/ConsumerUserApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/src/main/java/com/gqz/ticket/ProviderTicketApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/src/main/java/com/gqz/ticket/service/TicketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/src/main/java/com/gqz/ticket/service/TicketServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/provider-ticket/src/test/java/com/gqz/ticket/ProviderTicketApplicationTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="432c2264-971e-4412-be48-22ec2b076744" name="Default Changelist" comment="实现 Dubbo 服务提供方" />
     <ignored path="$PROJECT_DIR$/provider-ticket/target/" />
     <ignored path="$PROJECT_DIR$/consumer-user/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,7 +61,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="207" />
     <option name="width" value="1714" />
     <option name="height" value="1088" />
@@ -117,21 +72,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="spring-boot-dubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consumer-user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring-boot-dubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="provider-ticket" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -143,7 +84,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572422645293" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572422652509" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -216,8 +157,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572399427965</updated>
-      <workItem from="1572399430241" duration="15126000" />
+      <workItem from="1572399430241" duration="15590000" />
     </task>
+    <task id="LOCAL-00001" summary="实现 Dubbo 服务提供方">
+      <created>1572422621624</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572422621624</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -253,7 +202,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15126000" />
+    <option name="totallyTimeSpent" value="15590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -303,6 +252,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现 Dubbo 服务提供方" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 Dubbo 服务提供方" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/spring/boot/dubbo-spring-boot-starter/2.0.0/dubbo-spring-boot-starter-2.0.0.jar!/com/alibaba/dubbo/spring/boot/annotation/EnableDubboConfiguration.class">
