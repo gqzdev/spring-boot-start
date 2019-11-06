@@ -1,9 +1,10 @@
-server:
-    port: 8003
-
 spring:
     application:
-        name: provider-ticket
+        name: consumer-user
+
+
+server:
+    port: 8200
 
 eureka:
     instance:

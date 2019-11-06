@@ -1,5 +1,6 @@
 package com.gqz.providerticket.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketService {
 
+    @Value("${server.port}")
+    private String port;
+
     public String getTicket(String name){
+        System.out.println("调用服务:"+port);
         return name+"订购了《厉害了，我的国》";
     }
 }
