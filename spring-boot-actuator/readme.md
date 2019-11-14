@@ -1,4 +1,4 @@
-#  Spring Boot Actuator
+#  1.Spring Boot Actuator
 
 ​		Spring Boot Actuator可以帮助你监控和管理Spring Boot应用，比如健康检查、审计、统计和HTTP追踪等。所有的这些特性可以通过JMX或者HTTP endpoints来获得。
 
@@ -13,7 +13,7 @@
 
 
 
-## 创建一个有Actuator的Spring Boot工程
+## 1.1. 创建一个有Actuator的Spring Boot工程
 
 ​		首先让我们建一个依赖acutator的简单应用。
 
@@ -31,7 +31,7 @@ spring init -d=web,actuator -n=actuator actuator
 
 
 
-## 增加Spring Boot Actuator到一个存在的应用
+## 1.2 增加Spring Boot Actuator到一个存在的应用
 
 ​		你可以增加`spring-boot-actuator`模块到一个已经存在的应用，通过使用下面的依赖。
 
@@ -52,7 +52,7 @@ dependencies {
 }
 ```
 
-## 使用Actuator `Endpoints`来监控应用
+## 1.3 使用Actuator `Endpoints`来监控应用
 
 ​		Actuator创建了所谓的**endpoint**来暴露HTTP或者JMX来监控和管理应用。
 
@@ -107,9 +107,69 @@ mvn spring-boot:run
 
 ​		`info`endpoint(http://localhost:8080/actuator/info)展示了关于应用的一般信息，这些信息从编译文件比如`META-INF/build-info.properties` 或者Git文件比如`git.properties`或者任何环境的property中获取。你将在下一节中学习如何改变这个endpoint的输出。
 
+```json
+{
+    "app": {
+        "name": "test-actuator",
+        "version": "1.0.0",
+        "author": "ganquanzhong",
+        "time": "2019-11-08",
+        "description": "\"This is my actuator application gqzdevopler12321321\""
+    },
+    "git": {
+        "commit": {
+            "time": "2020-01-01 12:12:12",
+            "id": "gqzdev1"
+        },
+        "branch": "master"
+    }
+}
+```
+
 ​		**默认，只有`health`和`info`通过HTTP暴露了出来**。这也是为什么`/actuator`页面只展示了`health`和`info`endpoints。我们将学习如何暴露其他的endpoint。首先，让我们看看其他的endpoints是什么。
 
 以下是一些非常有用的actuator endpoints列表。你可以在[official documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html)上面看到完整的列表。
+
+## 1.4  端点endpoints
+
+执行器端点使您可以监视应用程序并与之交互。Spring Boot包含许多内置端点，您可以添加自己的端点。例如，`health`端点提供基本的应用程序运行状况信息。
+
+每个端点都可以[启用或禁用](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-enabling-endpoints)。这控制了是否创建了端点以及它的bean在应用程序上下文中是否存在。为了可以远程访问，端点还必须[通过JMX或HTTP公开](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)。大多数应用程序选择HTTP，其中终结点的ID和前缀`/actuator`映射到URL。例如，默认情况下，`health`端点映射到`/actuator/health`。
+
+可以使用以下与技术无关的端点：
+
+| ID                 | 描述                                                         |
+| :----------------- | :----------------------------------------------------------- |
+| `auditevents`      | 公开当前应用程序的审核事件信息。需要一个`AuditEventRepository`豆。 |
+| `beans`            | 显示应用程序中所有Spring Bean的完整列表。                    |
+| `caches`           | 公开可用的缓存。                                             |
+| `conditions`       | 显示在配置和自动配置类上评估的条件以及它们匹配或不匹配的原因。 |
+| `configprops`      | 显示所有的整理列表`@ConfigurationProperties`。               |
+| `env`              | 公开Spring的属性`ConfigurableEnvironment`。                  |
+| `flyway`           | 显示已应用的所有Flyway数据库迁移。需要一个或多个`Flyway`豆。 |
+| `health`           | 显示应用程序运行状况信息。                                   |
+| `httptrace`        | 显示HTTP跟踪信息（默认情况下，最近100个HTTP请求-响应交换）。需要一个`HttpTraceRepository`豆。 |
+| `info`             | 显示任意应用程序信息。                                       |
+| `integrationgraph` | 显示Spring Integration图。需要对的依赖`spring-integration-core`。 |
+| `loggers`          | 显示和修改应用程序中记录器的配置。                           |
+| `liquibase`        | 显示已应用的所有Liquibase数据库迁移。需要一个或多个`Liquibase`豆。 |
+| `metrics`          | 显示当前应用程序的“指标”信息。                               |
+| `mappings`         | 显示所有`@RequestMapping`路径的整理列表。                    |
+| `scheduledtasks`   | 显示应用程序中的计划任务。                                   |
+| `sessions`         | 允许从Spring Session支持的会话存储中检索和删除用户会话。需要使用Spring Session的基于Servlet的Web应用程序。 |
+| `shutdown`         | 使应用程序正常关闭。默认禁用。                               |
+| `threaddump`       | 执行线程转储。                                               |
+
+如果您的应用程序是Web应用程序（Spring MVC，Spring WebFlux或Jersey），则可以使用以下附加端点：
+
+| ID           | 描述                                                         |
+| :----------- | :----------------------------------------------------------- |
+| `heapdump`   | 返回`hprof`堆转储文件。                                      |
+| `jolokia`    | 通过HTTP公开JMX bean（当Jolokia在类路径上时，不适用于WebFlux）。需要对的依赖`jolokia-core`。 |
+| `logfile`    | 返回日志文件的内容（如果已设置`logging.file.name`或`logging.file.path`属性）。支持使用HTTP `Range`标头来检索部分日志文件的内容。 |
+| `prometheus` | 以Prometheus服务器可以抓取的格式公开指标。需要对的依赖`micrometer-registry-prometheus`。 |
+
+要了解有关执行器端点及其请求和响应格式的更多信息，请参阅单独的API文档（[HTML](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/actuator-api//html/)或[PDF](https://docs.spring.io/spring-boot/docs/2.2.1.RELEASE/actuator-api//pdf/spring-boot-actuator-web-api.pdf)）。
 
 | Endpoint ID    | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
@@ -129,11 +189,9 @@ mvn spring-boot:run
 | threaddump     | 执行一个线程dump                                             |
 | heapdump       | 返回一个GZip压缩的JVM堆dump                                  |
 
+## 1.5 打开和关闭Actuator Endpoints
 
-
-## 打开和关闭Actuator Endpoints
-
-​		默认，上述所有的endpints都是打开的，除了`shutdown` endpoint。
+​		默认，上述所有的**endpints**都是打开的，除了`shutdown` endpoint。
 
 ​		你可以通过设置  `management.endpoint.<id>.enabled to true or false`    (`id`是endpoint的id)来决定打开还是关闭一个actuator endpoint。
 
@@ -145,7 +203,7 @@ management.endpoint.shutdown.enabled=true
 
 
 
-## 暴露Actuator Endpoints
+## 1.6 暴露Actuator Endpoints
 
 ​		默认，素偶偶的actuator endpoint通过JMX被暴露，而通过HTTP暴露的只有`health`和`info`。
 
@@ -281,15 +339,25 @@ management.endpoint.health.show-details=always
 }
 ```
 
-## 解析常用的actuator endpoint
+## 1.7 解析常用的actuator endpoint
 
 ### /health endpoint
 
-`health` endpoint通过合并几个健康指数检查应用的健康情况。
+`health` endpoint通过合并几个健康指数   检查应用的健康情况。
 
-Spring Boot Actuator有几个预定义的健康指标比如[`DataSourceHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html), [`DiskSpaceHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), [`MongoHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/mongo/MongoHealthIndicator.html), [`RedisHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html), [`CassandraHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/cassandra/CassandraHealthIndicator.html)等。它使用这些健康指标作为健康检查的一部分。
+Spring Boot Actuator有几个预定义的健康指标比如
 
-举个例子，如果你的应用使用`Redis`，`RedisHealthindicator`将被当作检查的一部分。如果使用`MongoDB`，那么`MongoHealthIndicator`将被当作检查的一部分。
+[`DataSourceHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.html),
+
+ [`DiskSpaceHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.html), 
+
+[`MongoHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/mongo/MongoHealthIndicator.html), 
+
+[`RedisHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/redis/RedisHealthIndicator.html),
+
+ [`CassandraHealthIndicator`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/cassandra/CassandraHealthIndicator.html)等。它使用这些健康指标作为健康检查的一部分。
+
+​		举个例子，如果你的应用使用`Redis`，`RedisHealthindicator`将被当作检查的一部分。如果使用`MongoDB`，那么`MongoHealthIndicator`将被当作检查的一部分。
 
 你也可以关闭特定的健康检查指标，比如在prpperties中使用如下命令：
 
@@ -313,7 +381,22 @@ management:
 一旦你打开上述开关，你在`/health`中可以看到如下详细内容：
 
 ```json
-{"status":"UP","details":{"diskSpace":{"status":"UP","details":{"total":250790436864,"free":27172782080,"threshold":10485760}}}}
+{
+    "status": "UP",
+    "components": {
+        "diskSpace": {
+            "status": "UP",
+            "details": {
+                "total": 243222777856,
+                "free": 232938274816,
+                "threshold": 10485760
+            }
+        },
+        "ping": {
+            "status": "UP"
+        }
+    }
+}
 ```
 
 `health` endpoint现在包含了`DiskSpaceHealthIndicator`。
@@ -372,6 +455,68 @@ management:
 #### 创建一个自定义的健康指标
 
 你可以通过实现`HealthIndicator`接口来自定义一个健康指标，或者继承`AbstractHealthIndicator`类。
+
+1. 通过实现`HealthIndicator`接口方式 
+
+```java
+/**
+ * @ClassName MyAppHealthIndicator
+ * @Description   通过实现HealthIndicator接口实现自定义健康指标
+ * @Author ganquanzhong
+ * @Date2019/11/14 22:41
+ * @Version
+ **/
+
+@Component
+public class MyAppHealthIndicator implements HealthIndicator {
+    @Override
+    public Health health() {
+        /*
+            自定义的检查方法
+         */
+        //Health.up().build(); //代表健康
+        return Health.down().withDetail("msg","服务异常").build(); //down代表异常
+    }
+}
+
+```
+
+运行结果：
+
+```json
+{
+    "status": "DOWN",
+    "components": {
+        "diskSpace": {
+            "status": "UP",
+            "details": {
+                "total": 243222777856,
+                "free": 232634085376,
+                "threshold": 10485760
+            }
+        },
+        "myApp": {
+            "status": "DOWN",
+            "details": {
+                "msg": "服务异常"
+            }
+        },
+        "ping": {
+            "status": "UP"
+        },
+        "redis": {
+            "status": "DOWN",
+            "details": {
+                "error": "org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。"
+            }
+        }
+    }
+}
+```
+
+
+
+2. 通过集成`AbstractHealthIndicator`类方式
 
 ```java
 package com.example.actuator.health;
@@ -526,7 +671,7 @@ info:
 
 
 
-## 使用Spring Security来保证Actuator Endpoints安全
+## 1.8 使用Spring Security来保证Actuator Endpoints安全
 
 Actuator endpoints是敏感的，必须保障进入是被授权的。如果Spring Security是包含在你的应用中，那么endpoint是通过HTTP认证被保护起来的。
 
@@ -610,6 +755,7 @@ spring:
 
 - [Spring Boot Actuator: Production-ready features](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready.html)
 - [Micrometer: Spring Boot 2’s new application metrics collector](https://spring.io/blog/2018/03/16/micrometer-spring-boot-2-s-new-application-metrics-collector)
+- [参考](https://blog.csdn.net/z1790424577/article/details/81149236)
 
 ## 翻译源
 
