@@ -38,17 +38,15 @@
 
 ## 3、环境准备
 
-http://www.gulixueyuan.com/ 谷粒学院
-
 环境约束
 
-–jdk1.8：Spring Boot 推荐jdk1.7及以上；java version "1.8.0_112"
+–jdk1.8：Spring Boot 推荐jdk1.7及以上；java version "1.8.0_211"
 
 –maven3.x：maven 3.3以上版本；Apache Maven 3.3.9
 
-–IntelliJIDEA2017：IntelliJ IDEA 2017.2.2 x64、STS
+–IntelliJIDEA2018：IntelliJ IDEA 2018.3.2 x64、STS
 
-–SpringBoot 1.5.9.RELEASE：1.5.9；
+–SpringBoot 2.2.0 RELEASE：2.2.0；
 
 统一环境；
 
