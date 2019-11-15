@@ -1,4 +1,10 @@
-[![github](https://badgen.net/badge/author/gqzdev?icon)](https://github.com/gqzdev)[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![wechat-group](https://badgen.net/badge/SpringBoot/2.2.0.RELEASE)](https://github.com/spring-projects/spring-boot)[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study)
+[![github](https://badgen.net/badge/author/gqzdev?icon)](https://github.com/gqzdev)
+[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![wechat-group](https://badgen.net/badge/SpringBoot/2.2.0.RELEASE)](https://github.com/spring-projects/spring-boot)
+[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study)
 
 >使用最新的`Spring Boot2.2.0.RELEASE`版本集成各个模块，快速搭建应用开发环境。其中每个案例都是单独的项目，导入IDEA中配置即可运行`SpringBootApplication`应用。有些需要配置数据库，请查看单个案例的说明文档。	
 
