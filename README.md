@@ -1,20 +1,6 @@
-[![GitHub followers](https://img.shields.io/github/followers/gqzdev?style=social)](https://github.com/gqzdev)
-[![GitHub forks](https://img.shields.io/github/forks/gqzdev/spring-boot-study?style=social)]()
-[![GitHub stars](https://img.shields.io/github/stars/gqzdev/spring-boot-study?style=social)]()
-[![GitHub watchers](https://img.shields.io/github/watchers/gqzdev/spring-boot-study?style=social)]()[![github](https://badgen.net/badge/github/gqzdev?icon)](https://github.com/gqzdev)
+[![github](https://badgen.net/badge/author/gqzdev?icon)](https://github.com/gqzdev)[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![wechat-group](https://badgen.net/badge/SpringBoot/2.2.0.RELEASE)](https://github.com/spring-projects/spring-boot)[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study)
 
-[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)[![wechat-group](https://badgen.net/badge/SpringBoot/2.2.0.RELEASE)](https://github.com/spring-projects/spring-boot)
-[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
-[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
-[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study?color=green&label=%E4%BB%93%E5%BA%93%E5%A4%A7%E5%B0%8F&style=plastic)
-
-[![csdn](https://badgen.net/badge/blog/ganquanzhong/red)](https://blog.csdn.net/ganquanzhong)
-[![gitee](https://badgen.net/badge/gitee/zhong96/orange)](https://gitee.com/zhong96)
-[![cnblogs](https://badgen.net/badge/cnblogs/gqzdev/pink)](https://www.cnblogs.com/gqzdev/)
-
-
-
->  		使用最新的`Spring Boot2.2.0.RELEASE`版本集成各个模块，快速搭建应用开发环境。其中每个案例都是单独的项目，导入IDEA中配置即可运行`SpringBootApplication`应用。有些需要配置数据库，请查看单个案例的说明文档。	
+>使用最新的`Spring Boot2.2.0.RELEASE`版本集成各个模块，快速搭建应用开发环境。其中每个案例都是单独的项目，导入IDEA中配置即可运行`SpringBootApplication`应用。有些需要配置数据库，请查看单个案例的说明文档。	
 
 
 
