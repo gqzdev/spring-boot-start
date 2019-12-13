@@ -1,5 +1,7 @@
 :: show git status
 git status
+:: show git pull
+git pull
 :: add all changing
 git add -A
 :: input commit message
