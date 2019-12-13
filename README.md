@@ -1,14 +1,15 @@
-[![wechat-group](https://badgen.net/badge/language/Spring-Boot)](https://github.com/spring-projects/spring-boot)
-[![ForFuture](https://badgen.net/badge/ForFuture/gqzdev/cyan)](http://ganquanzhong.top)
-[![github](https://badgen.net/badge/github/github?icon)](https://github.com/gqzdev)
+[![github](https://badgen.net/badge/author/gqzdev?icon)](https://github.com/gqzdev)
 [![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![wechat-group](https://badgen.net/badge/SpringBoot/2.2.0.RELEASE)](https://github.com/spring-projects/spring-boot)
 [![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
 [![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
 [![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study)
 
-[![csdn](https://badgen.net/badge/blog/ganquanzhong/red)](https://blog.csdn.net/ganquanzhong)
-[![gitee](https://badgen.net/badge/gitee/zhong96/orange)](https://gitee.com/zhong96)
-[![cnblogs](https://badgen.net/badge/cnblogs/gqzdev/pink)](https://www.cnblogs.com/gqzdev/)
+>使用最新的`Spring Boot2.2.0.RELEASE`版本集成各个模块，快速搭建应用开发环境。其中每个案例都是单独的项目，导入IDEA中配置即可运行`SpringBootApplication`应用。有些需要配置数据库，请查看单个案例的说明文档。	
+
+
+
 # 一、Spring Boot 入门
 
 ## 1、Spring Boot 简介
@@ -37,25 +38,25 @@
 
 ## 3、环境准备
 
-http://www.gulixueyuan.com/ 谷粒学院
-
 环境约束
 
-–jdk1.8：Spring Boot 推荐jdk1.7及以上；java version "1.8.0_112"
++  jdk1.8：Spring Boot 推荐jdk1.7及以上；java version "1.8.0_211"
 
-–maven3.x：maven 3.3以上版本；Apache Maven 3.3.9
++ maven3.x：maven 3.3以上版本；Apache Maven 3.3.9
 
-–IntelliJIDEA2017：IntelliJ IDEA 2017.2.2 x64、STS
++ IntelliJIDEA2018：IntelliJ IDEA 2018.3.2 x64、STS
 
-–SpringBoot 1.5.9.RELEASE：1.5.9；
++ SpringBoot 2.2.0 RELEASE：2.2.0；
 
 统一环境；
+
++ MySql 5.7
 
 
 
 ### 1、MAVEN设置；
 
-给maven 的settings.xml配置文件的profiles标签添加
+给maven 的`settings.xml`配置文件的profiles标签添加
 
 ```xml
 <profile>
@@ -98,7 +99,7 @@ http://www.gulixueyuan.com/ 谷粒学院
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <version>2.2.0.RELEASE</version>
     </parent>
     <dependencies>
         <dependency>
@@ -171,14 +172,14 @@ public class HelloController {
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.9.RELEASE</version>
+    <version>2.2.0.RELEASE</version>
 </parent>
 
 他的父项目是
 <parent>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-dependencies</artifactId>
-  <version>1.5.9.RELEASE</version>
+  <version>2.2.0.RELEASE</version>
   <relativePath>../../spring-boot-dependencies</relativePath>
 </parent>
 他来真正管理Spring Boot应用里面的所有依赖版本；
@@ -412,8 +413,8 @@ server:
 
 ```yaml
 friends:
-		lastName: zhangsan
-		age: 20
+	lastName: zhangsan
+	age: 20
 ```
 
 行内写法：
@@ -661,7 +662,7 @@ ${random.int(10)}、${random.int[1024,65536]}
 ### 2、占位符获取之前配置的值，如果没有可以是用:指定默认值
 
 ```properties
-person.last-name=张三${random.uuid}
+person.last-name=甘全中${random.uuid}
 person.age=${random.int}
 person.birth=2017/12/15
 person.boss=false
@@ -753,6 +754,8 @@ SpringBoot会从这四个位置全部加载主配置文件；**互补配置**；
 
 java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --spring.config.location=G:/application.properties
 
+
+
 ## 7、外部配置加载顺序
 
 **==SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置==**
@@ -795,13 +798,15 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 
 
 
-10.@Configuration注解类上的@PropertySource
+10.`@Configuration`注解类上的`@PropertySource`
 
 11.通过SpringApplication.setDefaultProperties指定的默认属性
 
 所有支持的配置加载来源；
 
 [参考官方文档](https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/#boot-features-external-config)
+
+
 
 ## 8、自动配置原理
 
@@ -817,7 +822,7 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 
 **2）、@EnableAutoConfiguration 作用：**
 
- -  利用EnableAutoConfigurationImportSelector给容器中导入一些组件？
+ -  利用`EnableAutoConfigurationImportSelector`给容器中导入一些组件？
 
 - 可以查看selectImports()方法的内容；
 
@@ -833,7 +838,7 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 
     
 
-**==将 类路径下  META-INF/spring.factories 里面配置的所有EnableAutoConfiguration的值加入到了容器中；==**
+**==将 类路径下  META-INF/spring.factories 里面配置的所有`EnableAutoConfiguration`的值加入到了容器中；==**
 
 ```properties
 # Auto Configure
@@ -936,7 +941,7 @@ org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfigura
 org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration
 ```
 
-每一个这样的  xxxAutoConfiguration类都是容器中的一个组件，都加入到容器中；用他们来做自动配置；
+每一个这样的  `xxxAutoConfiguration`类都是容器中的一个组件，都加入到容器中；用他们来做自动配置；
 
 3）、每一个自动配置类进行自动配置功能；
 
@@ -3672,7 +3677,7 @@ public interface DepartmentMapper {
 
 问题：
 
-自定义MyBatis的配置规则；给容器中添加一个ConfigurationCustomizer；
+自定义MyBatis的配置规则；给容器中添加一个`ConfigurationCustomizer`；
 
 ```java
 @org.springframework.context.annotation.Configuration
@@ -3774,7 +3779,7 @@ spring:
 
 几个重要的事件回调机制
 
-配置在META-INF/spring.factories
+配置在`META-INF/spring.factories`
 
 **ApplicationContextInitializer**
 
@@ -3879,7 +3884,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 ## 3、事件监听机制
 
-配置在META-INF/spring.factories
+配置在`META-INF/spring.factories`
 
 **ApplicationContextInitializer**
 
@@ -3946,7 +3951,7 @@ com.atguigu.springboot.listener.HelloSpringApplicationRunListener
 
 
 
-只需要放在ioc容器中
+只需要放在`ioc`容器中
 
 **ApplicationRunner**
 
