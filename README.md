@@ -6,6 +6,9 @@
 [![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
 ![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study)
 
+[![cnblogs](https://badgen.net/badge/cnblogs/gqzdev/orange)](https://www.cnblogs.com/gqzdev)
+[![shang](https://badgen.net/badge/zhong/reward/blue)](https://www.cnblogs.com/gqzdev/p/shang.html )
+
 >使用最新的`Spring Boot2.2.0.RELEASE`版本集成各个模块，快速搭建应用开发环境。其中每个案例都是单独的项目，导入IDEA中配置即可运行`SpringBootApplication`应用。有些需要配置数据库，请查看单个案例的说明文档。	
 
 
