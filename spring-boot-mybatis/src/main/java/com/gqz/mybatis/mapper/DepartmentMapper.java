@@ -23,7 +23,7 @@ public interface DepartmentMapper {
     @Delete("delete from department where id = #{id}")
     public int deleteDeptById(Integer id);
 
-    //返回自增主键  使用userGeneratedKeys属性
+    // option属性 返回自增主键  使用userGeneratedKeys属性
     /* *
      使用驼峰式命名法，注解版  添加MyBatisConfig  Customerizer
      */
@@ -32,6 +32,9 @@ public interface DepartmentMapper {
     @Insert("insert into department(departmentName) values(#{departmentName})")
     public int insertDept(Department department);
 
+    /**
+     * update
+     */
     @Update("update department set departmentName = #{departmentName} where id =#{id}")
     public int updateDept(Department department);
 }
