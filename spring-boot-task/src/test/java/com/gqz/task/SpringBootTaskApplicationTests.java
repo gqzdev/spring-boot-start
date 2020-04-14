@@ -36,7 +36,7 @@ class SpringBootTaskApplicationTests {
     //测试发送复杂邮件 （文件 图片等）
     @Test
     public void testSendMail() throws Exception{
-        //1.创建一个复杂的消息右键
+        //1.创建一个复杂的消息邮件
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         //文件支持
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
