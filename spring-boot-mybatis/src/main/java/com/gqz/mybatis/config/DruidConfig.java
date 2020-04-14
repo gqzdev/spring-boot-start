@@ -15,10 +15,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 配置Druid（德鲁伊） 数据源监控
+ *
  * @ClassName: DruidConfig
  * @author: ganquanzhong
  * @date: 2019/9/30 16:27
  */
+
+
 @Configuration
 public class DruidConfig {
 
@@ -26,7 +30,6 @@ public class DruidConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource druidSource(){
-
         return new DruidDataSource();
     }
 
@@ -41,7 +44,7 @@ public class DruidConfig {
         initParams.put("loginUsername","admin");
         initParams.put("loginPassword","admin");
         initParams.put("allow","");//默认是允许所有的访问
-        initParams.put("deny","10.202.228.123");
+        initParams.put("deny","10.202.228.123"); //拒绝指定IP访问
 
         //设置参数，传入map
         bean.setInitParameters(initParams);
@@ -54,6 +57,8 @@ public class DruidConfig {
     public FilterRegistrationBean webStatFilter(){
         FilterRegistrationBean bean = new FilterRegistrationBean(new WebStatFilter());
         Map<String ,String > initParams = new HashMap<>();
+
+        //过滤器 exclusion 静态资源
         initParams.put("exclusions","*.js,*.css,/druid/*");
         bean.setInitParameters(initParams);
 
