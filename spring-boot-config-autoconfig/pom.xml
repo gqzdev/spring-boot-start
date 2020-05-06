@@ -11,7 +11,7 @@
     <groupId>com.gqz</groupId>
     <artifactId>spring-boot-02-config-autoconfig</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-02-config-autoconfig</name>
+    <name>spring-boot-config-autoconfig</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -28,6 +28,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
 
