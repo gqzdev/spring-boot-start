@@ -1,4 +1,4 @@
-package com.xkcoding.logback;
+package com.gqzdev.logback;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -10,13 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * 启动类
  * </p>
  *
- * @package: com.xkcoding.logback
  * @description: 启动类
- * @author: yangkai.shen
- * @date: Created in 2018/9/30 11:16 PM
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @SpringBootApplication
 @Slf4j
