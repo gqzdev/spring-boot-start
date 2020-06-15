@@ -1,17 +1,66 @@
 [![github](https://badgen.net/badge/author/gqzdev?icon)](https://github.com/gqzdev)
-[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
+[![stars](https://badgen.net/github/stars/gqzdev/spring-boot-start)](https://github.com/gqzdev/spring-boot-start)
 [![wechat-group](https://badgen.net/badge/SpringBoot/2.2.0.RELEASE)](https://github.com/spring-projects/spring-boot)
-[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
-[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
-[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-study)](https://github.com/gqzdev/spring-boot-study)
-![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-study)
+[![forks](https://badgen.net/github/forks/gqzdev/spring-boot-start)](https://github.com/gqzdev/spring-boot-start)
+[![last-commit](https://badgen.net/github/last-commit/gqzdev/spring-boot-start)](https://github.com/gqzdev/spring-bootstart)
+[![prs](https://badgen.net/github/prs/gqzdev/spring-boot-start)](https://github.com/gqzdev/spring-boot-start)
+![GitHub repo size](https://img.shields.io/github/repo-size/gqzdev/spring-boot-start)
 
 [![cnblogs](https://badgen.net/badge/cnblogs/gqzdev/orange)](https://www.cnblogs.com/gqzdev)
 [![shang](https://badgen.net/badge/zhong/reward/blue)](https://www.cnblogs.com/gqzdev/p/shang.html )
 
+<center style="color:green;font-size:28px;">Spring Boot 开启模式（Start）</center>
+
 >使用最新的`Spring Boot2.2.0.RELEASE`版本集成各个模块，快速搭建应用开发环境。其中每个案例都是单独的项目，导入IDEA中配置即可运行`SpringBootApplication`应用。有些需要配置数据库，请查看单个案例的说明文档。	
 
+Spring-Boot-Start已成功集成
 
+| 模块     | 说明       |
+| -------- | ---------- |
+| actuator | `监控`     |
+| admin    | 可视化监控 |
+| logback  | 日志       |
+|          |            |
+
+
+
+
+
+### 官方提供的 starter 介绍
+
+| 名称                                   | 描述                                                        |
+| :------------------------------------- | :---------------------------------------------------------- |
+| spring-boot-starter                    | Spring Boot 核心包，包括自动装配，日志，以及YAML文件解析    |
+| spring-boot-starter-actuator           | 帮助在生产环境下监控和管理 Spring Boot 应用                 |
+| spring-boot-starter-amqp               | Spring Boot 快速集成 RabbitMQ                               |
+| spring-boot-starter-aop                | 提供切面编程特性，包含 spring-aop 和 AspectJ 依赖           |
+| spring-boot-starter-batch              | 快速集成 Spring Batch 批处理框架，包括操作  HSQLDB 数据库   |
+| spring-boot-starter-cache              | Support for Spring’s Cache abstraction.                     |
+| spring-boot-starter-data-elasticsearch | Spring Boot 快速集成 ElasticSearch 查询分析引擎             |
+| spring-boot-starter-data-jpa           | Spring Boot 快速集成 JPA 操作数据库                         |
+| spring-boot-starter-data-mongodb       | Spring Boot 快速集成 MongoDB 非关系型数据库                 |
+| spring-boot-starter-data-rest          | Spring Boot 暴露数据库查询端点为 REST 服务                  |
+| spring-boot-starter-data-solr          | Spring Boot 快速集成 Solr 实现全文索引                      |
+| spring-boot-starter-freemarker         | 提供 FreeMarker 模板引擎                                    |
+| spring-boot-starter-groovy-templates   | 提供 Groovy 模板引擎                                        |
+| spring-boot-starter-integration        | 提供通用的集成 spring-integration 模块                      |
+| spring-boot-starter-jdbc               | 快速集成 JDBC 操作数据库                                    |
+| spring-boot-starter-jersey             | 提供 Jersey 提供  RESTful 服务                              |
+| spring-boot-starter-jta-atomikos       | 集成 JTA Atomikos 实现分布式事务                            |
+| spring-boot-starter-jta-bitronix       | 集成 JTA Bitronix 实现分布式事务                            |
+| spring-boot-starter-mail               | 快速邮件集成                                                |
+| spring-boot-starter-mustache           | 提供 Mustache 模板引擎                                      |
+| spring-boot-starter-redis              | Spring Boot 快速集成 Redis                                  |
+| spring-boot-starter-security           | Support for spring-security.                                |
+| spring-boot-starter-social-facebook    | Support for spring-social-facebook.                         |
+| spring-boot-starter-social-linkedin    | Support for spring-social-linkedin.                         |
+| spring-boot-starter-social-twitter     | Support for spring-social-twitter.                          |
+| spring-boot-starter-test               | 提供通用单元测试依赖，包括 JUnit, Hamcrest , Mockito        |
+| spring-boot-starter-thymeleaf          | 提供 Thymeleaf 模板引擎，包括 Thymeleaf 的自动装配等        |
+| spring-boot-starter-velocity           | 提供 Velocity 模板引擎                                      |
+| spring-boot-starter-web                | 提供全栈的 web 开发特性，包括 Spring MVC 依赖和 Tomcat 容器 |
+| spring-boot-starter-websocket          | Spring Boot 集成 WebSocket 功能                             |
+| spring-boot-starter-ws                 | Spring Boot 集成 WebService 功能                            |
 
 # 一、Spring Boot 入门
 

@@ -12,8 +12,9 @@
 	</appender>
 
 	<appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<!--如果只是想要 Info 级别的日志，只是过滤 info 还是会输出 Error 日志，因为 Error 的级别高， 所以我们使用下面的策略，可以避免输出 Error 的日志-->
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+
+    <!--如果只是想要 Info 级别的日志，只是过滤 info 还是会输出 Error 日志，因为 Error 的级别高， 所以我们使用下面的策略，可以避免输出 Error 的日志-->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
 			<!--过滤 Error-->
 			<level>ERROR</level>
 			<!--匹配到就禁止-->
@@ -21,7 +22,8 @@
 			<!--没有匹配到就允许-->
 			<onMismatch>ACCEPT</onMismatch>
 		</filter>
-		<!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
+
+    <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
 		<!--<File>logs/info.spring-boot-demo-logback.log</File>-->
 		<!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -36,7 +38,8 @@
 				<maxFileSize>2MB</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
-		<!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+
+    <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
 		<!--<maxFileSize>1KB</maxFileSize>-->
 		<!--</triggeringPolicy>-->
 		<encoder>
@@ -50,7 +53,8 @@
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>Error</level>
 		</filter>
-		<!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
+
+    <!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天的日志改名为今天的日期。即，<File> 的日志都是当天的。-->
 		<!--<File>logs/error.spring-boot-demo-logback.log</File>-->
 		<!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -63,7 +67,8 @@
 				<maxFileSize>2MB</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
-		<encoder>
+
+    <encoder>
 			<pattern>%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
 			<charset>UTF-8</charset> <!-- 此处设置字符集 -->
 		</encoder>

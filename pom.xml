@@ -4,66 +4,75 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!--父工程 spring-boot-start -->
   <groupId>com.gqzdev</groupId>
   <artifactId>spring-boot-start</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
   <modules>
-    <module>spring-boot-demo-helloworld</module>
-    <module>spring-boot-demo-properties</module>
-    <module>spring-boot-demo-actuator</module>
-    <module>spring-boot-demo-admin</module>
-    <module>spring-boot-demo-log-aop</module>
-    <module>spring-boot-demo-exception-handler</module>
-    <module>spring-boot-demo-template-freemarker</module>
-    <module>spring-boot-demo-template-thymeleaf</module>
-    <module>spring-boot-demo-template-beetl</module>
-    <module>spring-boot-demo-template-enjoy</module>
-    <module>spring-boot-demo-orm-jdbctemplate</module>
-    <module>spring-boot-demo-orm-jpa</module>
-    <module>spring-boot-demo-orm-mybatis</module>
-    <module>spring-boot-demo-orm-mybatis-mapper-page</module>
-    <module>spring-boot-demo-orm-mybatis-plus</module>
-    <module>spring-boot-demo-orm-beetlsql</module>
-    <module>spring-boot-demo-upload</module>
-    <module>spring-boot-demo-cache-redis</module>
-    <module>spring-boot-demo-cache-ehcache</module>
-    <module>spring-boot-demo-email</module>
-    <module>spring-boot-demo-task</module>
-    <module>spring-boot-demo-task-quartz</module>
-    <module>spring-boot-demo-task-xxl-job</module>
-    <module>spring-boot-demo-swagger</module>
-    <module>spring-boot-demo-swagger-beauty</module>
-    <module>spring-boot-demo-rbac-security</module>
-    <module>spring-boot-demo-rbac-shiro</module>
-    <module>spring-boot-demo-session</module>
-    <module>spring-boot-demo-oauth</module>
-    <module>spring-boot-demo-social</module>
-    <module>spring-boot-demo-zookeeper</module>
-    <module>spring-boot-demo-mq-rabbitmq</module>
-    <module>spring-boot-demo-mq-rocketmq</module>
-    <module>spring-boot-demo-mq-kafka</module>
-    <module>spring-boot-demo-websocket</module>
-    <module>spring-boot-demo-websocket-socketio</module>
-    <module>spring-boot-demo-ureport2</module>
-    <module>spring-boot-demo-uflo</module>
-    <module>spring-boot-demo-urule</module>
-    <module>spring-boot-demo-activiti</module>
-    <module>spring-boot-demo-async</module>
-    <module>spring-boot-demo-dubbo</module>
-    <module>spring-boot-demo-war</module>
-    <module>spring-boot-demo-elasticsearch</module>
-    <module>spring-boot-demo-mongodb</module>
-    <module>spring-boot-demo-neo4j</module>
-    <module>spring-boot-demo-docker</module>
-    <module>spring-boot-demo-multi-datasource-jpa</module>
-    <module>spring-boot-demo-multi-datasource-mybatis</module>
-    <module>spring-boot-demo-sharding-jdbc</module>
-    <module>spring-boot-demo-tio</module>
-    <module>spring-boot-demo-codegen</module>
-    <module>spring-boot-demo-graylog</module>
-    <module>spring-boot-demo-ldap</module>
-    <module>spring-boot-demo-dynamic-datasource</module>
+    <module>spring-boot-start-helloworld</module>
+    <module>spring-boot-start-properties</module>
+    <module>spring-boot-start-actuator</module>
+    <module>spring-boot-start-admin</module>
+    <module>spring-boot-start-log-aop</module>
+    <module>spring-boot-start-exception-handler</module>
+    <!--模板引擎 template-->
+    <module>spring-boot-start-template-freemarker</module>
+    <module>spring-boot-start-template-thymeleaf</module>
+    <module>spring-boot-start-template-beetl</module>
+    <module>spring-boot-start-template-enjoy</module>
+    <!--持久化 ORM-->
+    <module>spring-boot-start-orm-jdbctemplate</module>
+    <module>spring-boot-start-orm-jpa</module>
+    <module>spring-boot-start-orm-mybatis</module>
+    <module>spring-boot-start-orm-mybatis-mapper-page</module>
+    <module>spring-boot-start-orm-mybatis-plus</module>
+    <module>spring-boot-start-orm-beetlsql</module>
+    <module>spring-boot-start-upload</module>
+    <module>spring-boot-start-cache-redis</module>
+    <module>spring-boot-start-cache-ehcache</module>
+    <module>spring-boot-start-email</module>
+    <!--定时任务 schedule quartz job-->
+    <module>spring-boot-start-task</module>
+    <module>spring-boot-start-task-quartz</module>
+    <module>spring-boot-start-task-xxl-job</module>
+    <!--swagger-->
+    <module>spring-boot-start-swagger</module>
+    <module>spring-boot-start-swagger-beauty</module>
+    <!--RBAC 权限管理  -->
+    <module>spring-boot-start-rbac-security</module>
+    <module>spring-boot-start-rbac-shiro</module>
+    <module>spring-boot-start-session</module>
+    <module>spring-boot-start-oauth</module>
+    <module>spring-boot-start-social</module>
+    <!--MQ 消息队列-->
+    <module>spring-boot-start-mq-rabbitmq</module>
+    <module>spring-boot-start-mq-rocketmq</module>
+    <module>spring-boot-start-mq-kafka</module>
+    <!--websocket 网络套接字-->
+    <module>spring-boot-start-websocket</module>
+    <module>spring-boot-start-websocket-socketio</module>
+    <module>spring-boot-start-ureport2</module>
+    <module>spring-boot-start-uflo</module>
+    <module>spring-boot-start-zookeeper</module>
+    <module>spring-boot-start-urule</module>
+    <module>spring-boot-start-activiti</module>
+    <module>spring-boot-start-async</module>
+    <module>spring-boot-start-dubbo</module>
+    <module>spring-boot-start-war</module>
+    <module>spring-boot-start-elasticsearch</module>
+    <module>spring-boot-start-mongodb</module>
+    <module>spring-boot-start-neo4j</module>
+    <module>spring-boot-start-docker</module>
+    <!--多数据源 配置-->
+    <module>spring-boot-start-multi-datasource-jpa</module>
+    <module>spring-boot-start-multi-datasource-mybatis</module>
+    <module>spring-boot-start-sharding-jdbc</module>
+    <module>spring-boot-start-tio</module>
+    <module>spring-boot-start-codegen</module>
+    <module>spring-boot-start-graylog</module>
+    <module>spring-boot-start-ldap</module>
+    <module>spring-boot-start-dynamic-datasource</module>
     <module>spring-boot-start-logback</module>
   </modules>
   <packaging>pom</packaging>

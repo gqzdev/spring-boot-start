@@ -1,0 +1,11 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /dubbo-consumer
+
+spring:
+  dubbo:
+    application:
+      name: spring-boot-start-dubbo-consumer
+#      registry: zookeeper://127.0.0.1:2181
+      registry: zookeeper://49.235.210.101:2181

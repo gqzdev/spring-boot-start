@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /spring-boot-start-zk
+
+zk:
+#  url: 127.0.0.1:2181
+  url: 49.235.210.101:2181
+  timeout: 1000
+  retry: 3
