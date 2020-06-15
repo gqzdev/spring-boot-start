@@ -38,3 +38,14 @@ logs/
 
 ### VS CODE ###
 .vscode/
+
+
+
+*/.idea
+*/.mvn
+*/target
+*/HELP.md
+*/mvnw
+*/mvnw.cmd
+*/*.iml
+
