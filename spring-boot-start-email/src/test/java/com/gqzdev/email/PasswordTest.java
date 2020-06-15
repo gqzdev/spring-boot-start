@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author yangkai.shen
  * @date Created in 2019/8/27 16:15
  */
-public class PasswordTest extends SpringBootDemoEmailApplicationTests {
+public class PasswordTest extends EmailApplicationTests {
     @Autowired
     private StringEncryptor encryptor;
 

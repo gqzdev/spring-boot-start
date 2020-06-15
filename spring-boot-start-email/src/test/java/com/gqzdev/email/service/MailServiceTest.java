@@ -1,8 +1,7 @@
 package com.gqzdev.email.service;
 
 import cn.hutool.core.io.resource.ResourceUtil;
-import com.gqzdev.email.SpringBootDemoEmailApplicationTests;
-import com.gqzdev.email.SpringBootDemoEmailApplicationTests;
+import com.gqzdev.email.EmailApplicationTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -26,7 +25,7 @@ import java.net.URL;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public class MailServiceTest extends SpringBootDemoEmailApplicationTests {
+public class MailServiceTest extends EmailApplicationTests {
     @Autowired
     private MailService mailService;
     @Autowired

@@ -17,9 +17,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @modified: yangkai.shen
  */
 @SpringBootApplication
-public class SpringBootDemoEmailApplication {
+public class EmailApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootDemoEmailApplication.class, args);
+        SpringApplication.run(EmailApplication.class, args);
     }
 }

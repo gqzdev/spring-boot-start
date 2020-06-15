@@ -2,19 +2,6 @@ package com.gqzdev.email.service;
 
 import javax.mail.MessagingException;
 
-/**
- * <p>
- * 邮件接口
- * </p>
- *
- * @package: com.xkcoding.email.service
- * @description: 邮件接口
- * @author: yangkai.shen
- * @date: Created in 2018/11/21 11:16
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
- */
 public interface MailService {
     /**
      * 发送文本邮件
