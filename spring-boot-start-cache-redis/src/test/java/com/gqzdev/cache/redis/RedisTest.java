@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
  */
 
 @Slf4j
-public class RedisTest extends SpringBootDemoCacheRedisApplicationTests {
+public class RedisTest extends CacheRedisApplicationTests {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;

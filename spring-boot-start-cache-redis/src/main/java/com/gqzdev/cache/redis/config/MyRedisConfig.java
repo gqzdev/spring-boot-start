@@ -50,8 +50,9 @@ public class MyRedisConfig {
     }
     */
 
-    /*
-    数据存入redis时序列化，拿去缓存时反序列化
+    /**
+     自定义CacheManger ， 自动注入RedisCacheManager
+     数据存入redis时序列化，拿去缓存时反序列化
      */
     @Bean
     public RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {

@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-
-
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
@@ -31,6 +29,7 @@ public class UserServiceImpl implements UserService {
         DATABASES.put(3L, new User(3L, "user3"));
     }
 
+
     /**
      * 保存或修改用户
      *
@@ -44,6 +43,7 @@ public class UserServiceImpl implements UserService {
         log.info("保存用户【user】= {}", user);
         return user;
     }
+
 
     /**
      * 获取用户

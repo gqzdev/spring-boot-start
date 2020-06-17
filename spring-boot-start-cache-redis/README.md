@@ -1,6 +1,222 @@
-# spring-boot-demo-cache-redis
+# spring-boot-start-cache-redis
 
-> 此 demo 主要演示了 Spring Boot 如何整合 redis，操作redis中的数据，并使用redis缓存数据。连接池使用  Lettuce。
+> Spring Boot 整合 redis，操作redis中的数据，并使用redis缓存数据。连接池使用  Lettuce。
+
+## 安装Redis
+
+### Docker 安装 Redis
+
+
+
+1. 搜索Docker中的redis镜像
+
+   ```bash
+   docker search redis
+   ```
+
+   ![](assets/gqzdev-2020-06-17_14-48-10.png)
+
+2. 获取 redis 镜像  (注意切换为阿里的镜像)
+
+```bash
+docker pull redis;
+```
+
+![](assets/gqzdev-2020-06-17_14-53-46.png)
+\* 不加版本号默认获取最新版本
+
+3. 查看本地镜像
+
+```bash
+docker images;
+```
+
+![img](assets/gqzdev-2020-06-17_14-52-21.png)
+
+从官网获取 [redis.conf](http://download.redis.io/redis-stable/redis.conf) 配置文件
+
+- 修改默认配置文件
+  - bind 127.0.0.1  #注释掉这部分，这是限制redis只能本地访问
+  - protected-mode no  #默认yes，开启保护模式，限制为本地访问
+  - daemonize no  #默认no，改为yes意为以守护进程方式启动，可后台运行，除非kill进程（可选），改为yes会使配置文件方式启动redis失败
+  - dir  ./ #输入本地redis数据库存放文件夹（可选）
+  - appendonly yes #redis持久化（可选）
+
+4. docker 启动 redis 命令
+
+```bash
+docker run -p 6379:6379  --name myredis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf  -v /usr/local/docker/data:/data  -d redis redis-server /etc/redis/redis.conf --appendonly yes
+```
+
+- 命令解释说明：
+  - -p 6379:6379 端口映射： 前表示主机部分，：后表示容器部分。
+  - --name myredis  指定该容器名称，查看和进行操作都比较方便。
+  - -v 挂载目录，规则与端口映射相同。
+  - -d redis 表示后台启动redis
+  - redis-server /etc/redis/redis.conf  以配置文件启动redis，加载容器内的conf文件，最终找到的是挂载的目录/usr/local/docker/redis.conf
+  - appendonly yes 开启redis 持久化
+
+5. 使用docker ps 查看myredis已经运行了
+   ![img](assets/gqzdev-2020-06-17_15-02-47.png)
+
+6. 使用` docker exec -it myredis /bin/bash` 进入redis
+   ![](assets/gqzdev-2020-06-17_15-04-56.png)
+
+7. 使用 redis-cli 可以测试连接
+
+### Linux环境安装 Redis
+
+**安装步骤**
+
+1. 下载获得redis-3.2.5.tar.gz后将它放入我们的Linux目录/opt
+
+ 2.解压命令:tar -zxvf redis-3.2.5.tar.gz
+
+ 3.解压完成后进入目录:cd redis-3.2.5
+
+ 4.在redis-3.2.5目录下执行make命令
+
+> 运行Make命令时出现错误,提示 gcc：命令未找到 ，
+>
+> 原因是因为当前Linux环境中并没有安装gcc 与 g++ 的环境
+
+5.安装gcc与g++
+
+> 能上网的情况:	yum install gcc         yum install gcc-c++
+
+
+
+**查看默认安装目录** **/usr/local/bin**
+
+- Redis-benchmark:  性能测试工具，可以在自己本子运行，看看自己本子性能如何(服务启动起来后执行)
+- Redis-check-aof：修复有问题的AOF文件，rdb和aof后面讲
+- Redis-check-dump：修复有问题的dump.rdb文件
+- Redis-sentinel：Redis集群使用
+- redis-server：Redis服务器启动命令
+- redis-cli：客户端，操作入口
+
+
+
+**Redis**的启动
+
+- 默认前台方式启动
+- 直接执行redis-server 即可.启动后不能操作当前命令窗口
+- 推荐后台方式启动
+- 拷贝一份redis.conf配置文件到其他目录，例如根目录下的myredis目录  /myredis
+- 修改redis.conf文件中的一项配置 `daemonize` 将no 改为yes，代表后台启动
+- 执行配置文件进行启动 执行 `redis-server /myredis/redis.conf`
+
+```bash
+[root@txserver /]# redis-server /opt/myRedis/redis.conf 
+9276:C 21 May 2020 23:28:32.830 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+9276:C 21 May 2020 23:28:32.830 # Redis version=5.0.8, bits=64, commit=00000000, modified=0, pid=9276, just started
+9276:C 21 May 2020 23:28:32.830 # Configuration loaded
+```
+
+
+
+**客户端访问**
+
+- 使用`redis-cli` 命令访问启动好的Redis
+- 如果有多个Redis同时启动，则需指定端口号访问  `redis-cli -p 端口号`
+- 测试验证,通过 `ping 命令` 查看是否 返回 PONG
+
+
+
+**关闭Redis服务**
+
+- 单实例关闭
+- 如果还未通过客户端访问，可直接 `redis-cli shutdown`
+- 如果已经进入客户端,直接 shutdown即可.
+- 多实例关闭
+- 指定端口关闭 `redis-cli -p 端口号 shutdown`
+
+
+
+**设置开机启动Redis**
+
+
+
+1、编写脚本
+
+```bash
+vim /etc/init.d/redis
+```
+
+2、内容如下
+
+```bash
+# chkconfig: 2345 10 90  
+# description: Start and Stop redis     
+PATH=/usr/local/bin:/sbin:/usr/bin:/bin   #找到本机安装redis后，存放redis命令的目录  
+REDISPORT=6379                            #redis的默认端口， 要和下文中的redis.conf中一致
+EXEC=/usr/redisbin/redis-server           #redis服务端的命令
+REDIS_CLI=/usr/redisbin/redis-cli         #redis客户端的命令  这两个一般都在 PATH目录下
+PIDFILE=/var/run/redis.pid                #reids的进程文件生成的位置
+CONF="/usr/redisbin/redis.conf"           #redis的配置文件所在的目录 
+#AUTH="1234"  这句没什么用可以不要  
+ 
+case "$1" in   
+        start)   
+                if [ -f $PIDFILE ]   
+                then   
+                        echo "$PIDFILE exists, process is already running or crashed."  
+                else  
+                        echo "Starting Redis server..."  
+                        $EXEC $CONF   
+                fi   
+                if [ "$?"="0" ]   
+                then   
+                        echo "Redis is running..."  
+                fi   
+                ;;   
+        stop)   
+                if [ ! -f $PIDFILE ]   
+                then   
+                        echo "$PIDFILE exists, process is not running."  
+                else  
+                        PID=$(cat $PIDFILE)   
+                        echo "Stopping..."  
+                       $REDIS_CLI -p $REDISPORT  SHUTDOWN    
+                        sleep 2  
+                       while [ -x $PIDFILE ]   
+                       do  
+                                echo "Waiting for Redis to shutdown..."  
+                               sleep 1  
+                        done   
+                        echo "Redis stopped"  
+                fi   
+                ;;   
+        restart|force-reload)   
+                ${0} stop   
+                ${0} start   
+                ;;   
+        *)   
+               echo "Usage: /etc/init.d/redis {start|stop|restart|force-reload}" >&2  
+                exit 1  
+esac
+```
+
+3、设置redis 权限
+
+```bash
+chmod 755 /etc/init.d/redis
+```
+
+4、启动redis
+
+```bash
+/etc/init.d/redis start
+```
+
+5、设置开机启动
+
+```bash
+cd /etc/init.d/
+chkconfig redis on
+```
+
+
 
 ## pom.xml
 
@@ -10,16 +226,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo-cache-redis</artifactId>
+    <artifactId>spring-boot-start-cache-redis</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-demo-cache-redis</name>
+    <name>spring-boot-start-cache-redis</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>com.xkcoding</groupId>
-        <artifactId>spring-boot-demo</artifactId>
+        <groupId>com.gqzdev</groupId>
+        <artifactId>spring-boot-start</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
@@ -120,17 +336,7 @@ logging:
 
 ```java
 /**
- * <p>
  * redis配置
- * </p>
- *
- * @package: com.xkcoding.cache.redis.config
- * @description: redis配置
- * @author: yangkai.shen
- * @date: Created in 2018/11/15 16:41
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @Configuration
 @AutoConfigureAfter(RedisAutoConfiguration.class)
@@ -155,17 +361,7 @@ public class RedisConfig {
 
 ```java
 /**
- * <p>
  * UserService
- * </p>
- *
- * @package: com.xkcoding.cache.redis.service.impl
- * @description: UserService
- * @author: yangkai.shen
- * @date: Created in 2018/11/15 16:45
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @Service
 @Slf4j
@@ -239,17 +435,7 @@ public class UserServiceImpl implements UserService {
 
 ```java
 /**
- * <p>
  * Redis测试
- * </p>
- *
- * @package: com.xkcoding.cache.redis
- * @description: Redis测试
- * @author: yangkai.shen
- * @date: Created in 2018/11/15 17:17
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @Slf4j
 public class RedisTest extends SpringBootDemoCacheRedisApplicationTests {
@@ -274,7 +460,7 @@ public class RedisTest extends SpringBootDemoCacheRedisApplicationTests {
         log.debug("【k1】= {}", k1);
 
         // 以下演示整合，具体Redis命令可以参考官方文档
-        String key = "xkcoding:user:1";
+        String key = "gqzdev:user:1";
         redisCacheTemplate.opsForValue().set(key, new User(1L, "user1"));
         // 对应 String（字符串）
         User user = (User) redisCacheTemplate.opsForValue().get(key);
@@ -290,17 +476,7 @@ public class RedisTest extends SpringBootDemoCacheRedisApplicationTests {
 
 ```java
 /**
- * <p>
  * Redis - 缓存测试
- * </p>
- *
- * @package: com.xkcoding.cache.redis.service
- * @description: Redis - 缓存测试
- * @author: yangkai.shen
- * @date: Created in 2018/11/15 16:53
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @Slf4j
 public class UserServiceTest extends SpringBootDemoCacheRedisApplicationTests {

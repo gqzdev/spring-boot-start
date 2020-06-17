@@ -2,7 +2,6 @@ package com.gqzdev.mq.rabbitmq.config;
 
 import com.google.common.collect.Maps;
 import com.gqzdev.mq.rabbitmq.constants.RabbitConsts;
-import com.gqzdev.mq.rabbitmq.constants.RabbitConsts;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -13,18 +12,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 /**
- * <p>
  * RabbitMQ配置，主要是配置队列，如果提前存在该队列，可以省略本配置类
- * </p>
  *
- * @package: com.xkcoding.mq.rabbitmq.config
- * @description: RabbitMQ配置，主要是配置队列，如果提前存在该队列，可以省略本配置类
- * @author: yangkai.shen
- * @date: Created in 2018-12-29 17:03
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ *
+ * @Author: ganquanzhong
+ * @Date:  2020/6/17 14:14
  */
+
 @Slf4j
 @Configuration
 public class RabbitMqConfig {

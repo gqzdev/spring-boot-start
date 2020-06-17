@@ -17,10 +17,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @modified: yangkai.shen
  */
 @SpringBootApplication
-public class SpringBootDemoMqRabbitmqApplication {
+public class RabbitmqApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootDemoMqRabbitmqApplication.class, args);
+        SpringApplication.run(RabbitmqApplication.class, args);
     }
 
 }

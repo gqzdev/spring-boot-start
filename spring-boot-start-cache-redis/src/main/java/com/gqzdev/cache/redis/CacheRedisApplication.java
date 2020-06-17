@@ -1,9 +1,12 @@
 package com.gqzdev.cache.redis;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.BeansException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 
 /**
@@ -38,9 +41,10 @@ import org.springframework.cache.annotation.EnableCaching;
  *              7 = "org.springframework.boot.autoconfigure.cache.CaffeineCacheConfiguration"
  *              8 = "org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration"
  *              9 = "org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration"
+ *
  *          3.哪个配置类默认生效，SimpleCacheConfiguration
  *
- *          4.给容器中注册了一个CacheManager；ConcurrentMapCacheManager
+ *          4.给容器中注册了一个CacheManager； ConcurrentMapCacheManager
  *          5.可以获取和创建ConcurrentMapCache类型的缓存组件；
  *              他的作用将数据保存在ConcurrentMap中
  *
@@ -48,6 +52,7 @@ import org.springframework.cache.annotation.EnableCaching;
  *      步骤 cache缓存的执行流程
  *          1.方法运行之前，先去查询cache（缓存组件）,按照cacheNames指定的名字获取；
  *              （CacheManager先获取相应的缓存），第一次获取缓存如果没有Cache组件会自动创建
+ *
  *          2.去Cache中查找缓存的内容，使用一个key，默认是方法的参数
  *              key是按照某种策略生成的，默认使用SimpleKeyGenerator生成的key；
  *              SimpleKeyGenerator生成key的默认策略为：
@@ -57,7 +62,9 @@ import org.springframework.cache.annotation.EnableCaching;
  *          3.没有查询到缓存就调用目标方法
  *          4.将目标方法返回的结果，放进缓存中
  *
- * @Cacheable标注的方法执行之前先来检查缓存中有没有这个数据。默认是按照参数的值作为key去查村缓存
+ *   @Cacheable 标注的方法执行之前先来检查缓存中有没有这个数据。
+ * 默认是按照参数的值作为key去查村缓存
+ *
  * 如果没有就运行方法并将结果放入缓存；以后再来调用就可以直接使用缓存中的数据
  *      核心：
  *          1.使用CacheManager【ConcurrentMapCacheManager】按照名字得到Cache【ConcurrentMap】组件
@@ -69,20 +76,34 @@ import org.springframework.cache.annotation.EnableCaching;
  * 开发中经常使用的缓存中间件：redis, memcached ,ehcache
  *
  * 整合Redis作为缓存
- *  1.安装redis ,使用Docker安装
+ *  1.安装redis ,使用Docker安装  https://blog.csdn.net/ganquanzhong/article/details/106808700
  *  2.在Spring Boot应用中引入redis的starter
- *  3.配置redis后，CacheManager切换为RedisCacheManager(自动配置注入)
+ *  3.配置redis后，CacheManager切换为RedisCacheManager 配置注入)
  *
  * @author ganquanzhong
  * @date   2019/10/10 15:06
  */
 
-@MapperScan("com.gqzdev.cache.redis.mapper") /*扫描mapper*/
-@EnableCaching /*开启注解缓存*/
+@MapperScan("com.gqzdev.cache.redis.mapper")
+@EnableCaching
 @SpringBootApplication
-public class CacheRedisApplication {
+public class CacheRedisApplication implements ApplicationContextAware {
+
+    // 上下文 实例
+    private  ApplicationContext applicationContext;
+
+
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext=applicationContext;
+    }
 
     public static void main(String[] args) {
+        CacheRedisApplication app = new CacheRedisApplication();
+        System.out.println(app.applicationContext.getDisplayName());
+
+
         SpringApplication.run(CacheRedisApplication.class, args);
     }
 }

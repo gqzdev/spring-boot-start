@@ -1,26 +1,16 @@
 package com.gqzdev.cache.redis.service;
 
-import com.gqzdev.cache.redis.SpringBootDemoCacheRedisApplicationTests;
+import com.gqzdev.cache.redis.CacheRedisApplicationTests;
 import com.gqzdev.cache.redis.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * <p>
  * Redis - 缓存测试
- * </p>
- *
- * @package: com.xkcoding.cache.redis.service
- * @description: Redis - 缓存测试
- * @author: yangkai.shen
- * @date: Created in 2018/11/15 16:53
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @Slf4j
-public class UserServiceTest extends SpringBootDemoCacheRedisApplicationTests {
+public class UserServiceTest extends CacheRedisApplicationTests {
     @Autowired
     private UserService userService;
 
