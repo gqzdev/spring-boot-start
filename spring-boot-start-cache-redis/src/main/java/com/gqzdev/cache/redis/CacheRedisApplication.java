@@ -1,13 +1,9 @@
 package com.gqzdev.cache.redis;
 
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.BeansException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-
 
 /**
  *搭建基本环境
@@ -84,26 +80,14 @@ import org.springframework.context.ApplicationContextAware;
  * @date   2019/10/10 15:06
  */
 
-@MapperScan("com.gqzdev.cache.redis.mapper")
 @EnableCaching
+@MapperScan("com.gqzdev.cache.redis.mapper")
 @SpringBootApplication
-public class CacheRedisApplication implements ApplicationContextAware {
-
-    // 上下文 实例
-    private  ApplicationContext applicationContext;
-
-
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext=applicationContext;
-    }
+public class CacheRedisApplication {
 
     public static void main(String[] args) {
-        CacheRedisApplication app = new CacheRedisApplication();
-        System.out.println(app.applicationContext.getDisplayName());
-
 
         SpringApplication.run(CacheRedisApplication.class, args);
     }
 }
+

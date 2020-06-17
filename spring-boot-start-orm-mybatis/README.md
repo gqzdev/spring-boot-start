@@ -1,6 +1,6 @@
-# spring-boot-demo-orm-mybatis
+# spring-boot-start-orm-mybatis
 
-> 此 demo 演示了 Spring Boot 如何与原生的 mybatis 整合，使用了 mybatis 官方提供的脚手架 `mybatis-spring-boot-starter `可以很容易的和 Spring Boot 整合。
+> Spring Boot 如何与原生的 mybatis 整合，使用了 mybatis 官方提供的脚手架 `mybatis-spring-boot-starter `可以很容易的和 Spring Boot 整合。
 
 ## pom.xml
 
@@ -10,16 +10,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo-orm-mybatis</artifactId>
+    <artifactId>spring-boot-start-orm-mybatis</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-demo-orm-mybatis</name>
+    <name>spring-boot-start-orm-mybatis</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>com.xkcoding</groupId>
-        <artifactId>spring-boot-demo</artifactId>
+        <groupId>com.gqzdev</groupId>
+        <artifactId>spring-boot-start</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
@@ -82,24 +82,21 @@
 
 ```java
 /**
- * <p>
- * 启动类
- * </p>
  *
- * @package: com.xkcoding.orm.mybatis
- * @description: 启动类
- * @author: yangkai.shen
- * @date: Created in 2018/11/8 10:52
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ * Spring Boot整合MyBatis
+ *      在application.properties或yml中配置mybatis的映射文件mapper.xml ，别名，等
+ *      添加@MapperScan注解，扫描mapper接口
+ *
+ * @Author: ganquanzhong
+ * @Date:  2020/6/17 18:01
  */
-@MapperScan(basePackages = {"com.xkcoding.orm.mybatis.mapper"})
+
+@MapperScan(basePackages = {"com.gqzdev.orm.mybatis.mapper"})
 @SpringBootApplication
-public class SpringBootDemoOrmMybatisApplication {
+public class OrmMybatisApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootDemoOrmMybatisApplication.class, args);
+        SpringApplication.run(OrmMybatisApplication.class, args);
     }
 }
 ```
@@ -109,7 +106,7 @@ public class SpringBootDemoOrmMybatisApplication {
 ```yaml
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring-boot-demo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/spring-boot-start?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -131,32 +128,31 @@ spring:
       connection-timeout: 30000
 logging:
   level:
-    com.xkcoding: debug
-    com.xkcoding.orm.mybatis.mapper: trace
+    com.gqzdev: debug
+    com.gqzdev.orm.mybatis.mapper: trace
 mybatis:
   configuration:
     # 下划线转驼峰
     map-underscore-to-camel-case: true
+  # mapper文件
   mapper-locations: classpath:mappers/*.xml
-  type-aliases-package: com.xkcoding.orm.mybatis.entity
+  # 配置别名
+  type-aliases-package: com.gqzdev.orm.mybatis.entity
+
 ```
 
 ## UserMapper.java
 
 ```java
 /**
- * <p>
- * User Mapper
- * </p>
- *
- * @package: com.xkcoding.orm.mybatis.mapper
- * @description: User Mapper
- * @author: yangkai.shen
- * @date: Created in 2018/11/8 10:54
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
- */
+ *   UserMapper   接口 动态代理
+ * 
+ *   可以使用注解的形式
+ *       使用Mapper xml文件
+ * @Author: ganquanzhong
+ * @Date:  2020/6/17 18:05 
+ */  
+  
 @Mapper
 @Component
 public interface UserMapper {
@@ -193,7 +189,6 @@ public interface UserMapper {
      * @return 成功 - {@code 1} 失败 - {@code 0}
      */
     int deleteById(@Param("id") Long id);
-
 }
 ```
 
@@ -231,29 +226,24 @@ public interface UserMapper {
         WHERE `id` = #{id}
     </delete>
 </mapper>
+
 ```
 
 ## UserMapperTest.java
 
 ```java
 /**
- * <p>
- * UserMapper 测试类
- * </p>
  *
- * @package: com.xkcoding.orm.mybatis.mapper
- * @description: UserMapper 测试类
- * @author: yangkai.shen
- * @date: Created in 2018/11/8 11:25
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ * UserMapper 测试类
  */
 @Slf4j
-public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
+public class UserMapperTest extends OrmMybatisApplicationTests {
     @Autowired
     private UserMapper userMapper;
 
+    /**
+     * 测试查询所有
+     */
     @Test
     public void selectAllUser() {
         List<User> userList = userMapper.selectAllUser();
@@ -261,6 +251,9 @@ public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
         log.debug("【userList】= {}", userList);
     }
 
+    /**
+     * 测试根据主键查询单个
+     */
     @Test
     public void selectUserById() {
         User user = userMapper.selectUserById(1L);
@@ -268,6 +261,9 @@ public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
         log.debug("【user】= {}", user);
     }
 
+    /**
+     * 测试保存
+     */
     @Test
     public void saveUser() {
         String salt = IdUtil.fastSimpleUUID();
@@ -276,6 +272,9 @@ public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
         Assert.assertEquals(1, i);
     }
 
+    /**
+     * 测试根据主键删除
+     */
     @Test
     public void deleteById() {
         int i = userMapper.deleteById(1L);

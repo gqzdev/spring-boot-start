@@ -4,9 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.SecureUtil;
-import com.gqzdev.orm.mybatis.SpringBootDemoOrmMybatisApplicationTests;
-import com.gqzdev.orm.mybatis.entity.User;
-import com.gqzdev.orm.mybatis.SpringBootDemoOrmMybatisApplicationTests;
+import com.gqzdev.orm.mybatis.OrmMybatisApplicationTests;
 import com.gqzdev.orm.mybatis.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -16,20 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * <p>
- * UserMapper 测试类
- * </p>
  *
- * @package: com.xkcoding.orm.mybatis.mapper
- * @description: UserMapper 测试类
- * @author: yangkai.shen
- * @date: Created in 2018/11/8 11:25
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ * UserMapper 测试类
  */
 @Slf4j
-public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
+public class UserMapperTest extends OrmMybatisApplicationTests {
     @Autowired
     private UserMapper userMapper;
 

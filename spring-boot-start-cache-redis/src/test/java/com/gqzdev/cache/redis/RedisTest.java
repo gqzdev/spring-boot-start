@@ -33,6 +33,7 @@ public class RedisTest extends CacheRedisApplicationTests {
     @Test
     public void get() {
         // 测试线程安全，程序结束查看redis中count的值是否为1000
+        // Executors创建线程池 大小为1000
         ExecutorService executorService = Executors.newFixedThreadPool(1000);
         IntStream.range(0, 1000).forEach(i -> executorService.execute(() -> stringRedisTemplate.opsForValue().increment("count", 1)));
 
@@ -41,8 +42,9 @@ public class RedisTest extends CacheRedisApplicationTests {
         log.debug("【k1】= {}", k1);
 
         // 以下演示整合，具体Redis命令可以参考官方文档
-        String key = "xkcoding:user:1";
+        String key = "gqzdev:user:1";
         redisCacheTemplate.opsForValue().set(key, new User(1L, "user1"));
+
         // 对应 String（字符串）
         User user = (User) redisCacheTemplate.opsForValue().get(key);
         log.debug("【user】= {}", user);

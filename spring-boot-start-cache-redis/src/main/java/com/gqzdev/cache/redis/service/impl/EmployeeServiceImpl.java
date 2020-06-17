@@ -53,7 +53,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @date   2019/10/10 15:59
      */
     @Override
-    @Cacheable(/*cacheNames = {"emp"}*//*,keyGenerator = "myKeyGenerator",condition = "#a0>1",unless = "#a0==2"*/)
+    @Cacheable(/*cacheNames = {"emp"}*//*,keyGenerator = "myKeyGenerator",condition = "#a0>1", unless = "#a0==2"*/)
     public Employee getEmp(Integer id){
         System.out.println("查询"+id+"号员工");
         return employeeMapper.getEmpById(id);
@@ -68,7 +68,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * 修改了数据，并且将修改后的数据保存在缓存中（要求使用相同的key策略）
      */
     @Override
-    @CachePut(/*value = "emp",*/key = "#result.id")
+    @CachePut(/*value = "emp",*/ key = "#result.id")
     public Employee updateEmp(Employee employee){
         System.out.println("Update Emp"+employee);
         employeeMapper.updateEmp(employee);

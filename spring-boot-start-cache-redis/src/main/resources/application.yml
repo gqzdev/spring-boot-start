@@ -6,9 +6,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql//49.235.210.101:3306/spring-boot-start
-    data-username: root
-    data-password: ganquanzhong
+    url: jdbc:mysql://49.235.210.101:3306/spring-boot-start?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: ganquanzhong
 
   redis:
     host: 192.168.100.171

@@ -9,18 +9,14 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * <p>
- * User Mapper
- * </p>
+ *   UserMapper   接口 动态代理
  *
- * @package: com.xkcoding.orm.mybatis.mapper
- * @description: User Mapper
- * @author: yangkai.shen
- * @date: Created in 2018/11/8 10:54
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ *   可以使用注解的形式
+ *       使用Mapper xml文件
+ * @Author: ganquanzhong
+ * @Date:  2020/6/17 18:05
  */
+
 @Mapper
 @Component
 public interface UserMapper {
