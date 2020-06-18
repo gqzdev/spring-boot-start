@@ -4,8 +4,6 @@ import cn.hutool.json.JSONUtil;
 import com.gqzdev.mq.rabbitmq.constants.RabbitConsts;
 import com.gqzdev.mq.rabbitmq.message.MessageStruct;
 import com.rabbitmq.client.Channel;
-import com.gqzdev.mq.rabbitmq.constants.RabbitConsts;
-import com.gqzdev.mq.rabbitmq.message.MessageStruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -15,17 +13,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 /**
- * <p>
- * 延迟队列处理器
- * </p>
  *
- * @package: com.xkcoding.mq.rabbitmq.handler
- * @description: 延迟队列处理器
- * @author: yangkai.shen
- * @date: Created in 2019-01-04 17:42
- * @copyright: Copyright (c) 2019
- * @version: V1.0
- * @modified: yangkai.shen
+ *
+ * 延迟队列处理器
  */
 @Slf4j
 @Component
@@ -34,7 +24,9 @@ public class DelayQueueHandler {
 
     @RabbitHandler
     public void directHandlerManualAck(MessageStruct messageStruct, Message message, Channel channel) {
-        //  如果手动ACK,消息会被监听消费,但是消息在队列中依旧存在,如果 未配置 acknowledge-mode 默认是会在消费完毕后自动ACK掉
+
+        //  如果手动ACK,消息会被监听消费,但是消息在队列中依旧存在,
+        //  如果 未配置 acknowledge-mode 默认是会在消费完毕后自动ACK掉
         final long deliveryTag = message.getMessageProperties().getDeliveryTag();
         try {
             log.info("延迟队列，手动ACK，接收消息：{}", JSONUtil.toJsonStr(messageStruct));

@@ -57,7 +57,7 @@
     </dependencies>
 
     <build>
-        <finalName>spring-boot-demo-mq-rabbitmq</finalName>
+        <finalName>spring-boot-start-mq-rabbitmq</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

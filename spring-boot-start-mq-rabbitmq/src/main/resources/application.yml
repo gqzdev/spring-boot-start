@@ -1,10 +1,11 @@
 server:
   port: 8080
   servlet:
-    context-path: /demo
+    context-path: /spring-boot-start-mq
+
 spring:
   rabbitmq:
-    host: localhost
+    host: 192.168.100.171
     port: 5672
     username: guest
     password: guest

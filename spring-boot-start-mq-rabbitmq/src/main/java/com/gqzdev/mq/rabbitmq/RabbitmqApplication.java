@@ -1,21 +1,27 @@
 package com.gqzdev.mq.rabbitmq;
 
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 /**
- * <p>
- * 启动器
- * </p>
+ * Spring Boot集成Integration AMQP rabbitmq
+ * 自动配置类RabbitAutoConfiguration
  *
- * @package: com.xkcoding.mq.rabbitmq
- * @description: 启动器
- * @author: yangkai.shen
- * @date: Created in 2018-12-29 13:58
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ * 1.自动配置了连接工厂 rabbitConnectionFactory
+ * 2.RabbitProperties 封装了Rabbitmq的配置文件
+ * 3.RabbitTemplate 给RabbitMQ发送和接收消息
+ *
+ * 4.AmqpAdmin： RabbitMQ系统管理功能组件
+ *      AmqpAdmin: 创建和删除 Queue、Exchange、Binding
+ * 5. @EnableRabbit  + @RabbitListener 监听消息队列的内容
+ *
+ * @author ganquanzhong
+ * @date   2019/10/18 14:54
  */
+
+@EnableRabbit //开启基于注解的Rabbitmq模式
 @SpringBootApplication
 public class RabbitmqApplication {
 
