@@ -3,8 +3,7 @@ package com.gqzdev.elasticsearch.repository;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONUtil;
 import com.google.common.collect.Lists;
-import com.gqzdev.elasticsearch.SpringBootDemoElasticsearchApplicationTests;
-import com.gqzdev.elasticsearch.SpringBootDemoElasticsearchApplicationTests;
+import com.gqzdev.elasticsearch.ElasticsearchApplicationTests;
 import com.gqzdev.elasticsearch.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.index.query.MatchQueryBuilder;
@@ -39,7 +38,7 @@ import java.util.List;
  * @modified: yangkai.shen
  */
 @Slf4j
-public class PersonRepositoryTest extends SpringBootDemoElasticsearchApplicationTests {
+public class PersonRepositoryTest extends ElasticsearchApplicationTests {
     @Autowired
     private PersonRepository repo;
 

@@ -1,7 +1,6 @@
 package com.gqzdev.elasticsearch.template;
 
-import com.gqzdev.elasticsearch.SpringBootDemoElasticsearchApplicationTests;
-import com.gqzdev.elasticsearch.SpringBootDemoElasticsearchApplicationTests;
+import com.gqzdev.elasticsearch.ElasticsearchApplicationTests;
 import com.gqzdev.elasticsearch.model.Person;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public class TemplateTest extends SpringBootDemoElasticsearchApplicationTests {
+public class TemplateTest extends ElasticsearchApplicationTests {
     @Autowired
     private ElasticsearchTemplate esTemplate;
 

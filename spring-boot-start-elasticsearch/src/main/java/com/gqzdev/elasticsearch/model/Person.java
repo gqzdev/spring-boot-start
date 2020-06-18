@@ -12,17 +12,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.util.Date;
 
 /**
- * <p>
  * 用户实体类
- * </p>
- *
- * @package: com.xkcoding.elasticsearch.model
- * @description: 用户实体类
- * @author: yangkai.shen
- * @date: Created in 2018-12-20 17:29
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @Document(indexName = EsConsts.INDEX_NAME, type = EsConsts.TYPE_NAME, shards = 1, replicas = 0)
 @Data
