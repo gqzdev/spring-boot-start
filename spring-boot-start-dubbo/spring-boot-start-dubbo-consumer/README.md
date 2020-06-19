@@ -1,4 +1,4 @@
-# spring-boot-demo-dubbo-consumer
+# spring-boot-start-dubbo-consumer
 
 > 此 module 主要是服务调用方的示例
 
@@ -10,13 +10,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-boot-demo-dubbo</artifactId>
-        <groupId>com.xkcoding</groupId>
+        <artifactId>spring-boot-start-dubbo</artifactId>
+        <groupId>com.gqzdev</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo-dubbo-consumer</artifactId>
+    <artifactId>spring-boot-start-dubbo-consumer</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -80,24 +80,19 @@ spring:
   dubbo:
     application:
       name: spring-boot-demo-dubbo-consumer
-      registry: zookeeper://127.0.0.1:2181
+      registry: zookeeper://192.168.100.171:2181
 ```
 
 ## SpringBootDemoDubboConsumerApplication.java
 
 ```java
 /**
- * <p>
- * 启动器
- * </p>
+ *  使用@EnableDubboConfiguration 开启Dubbo使用
  *
- * @package: com.xkcoding.dubbo.consumer
- * @description: 启动器
- * @author: yangkai.shen
- * @date: Created in 2018-12-25 16:49
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ *  配置ZooKeeper注册中心
+ *
+ * @Author: ganquanzhong
+ * @Date:  2020/6/15 13:18
  */
 @SpringBootApplication
 @EnableDubboConfiguration
@@ -113,17 +108,7 @@ public class SpringBootDemoDubboConsumerApplication {
 
 ```java
 /**
- * <p>
  * Hello服务API
- * </p>
- *
- * @package: com.xkcoding.dubbo.consumer.controller
- * @description: Hello服务API
- * @author: yangkai.shen
- * @date: Created in 2018-12-25 17:22
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 @RestController
 @Slf4j

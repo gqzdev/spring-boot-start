@@ -17,9 +17,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @modified: yangkai.shen
  */
 @SpringBootApplication
-public class SpringBootDemoRbacSecurityApplication {
+public class RbacSecurityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootDemoRbacSecurityApplication.class, args);
+        SpringApplication.run(RbacSecurityApplication.class, args);
     }
 }

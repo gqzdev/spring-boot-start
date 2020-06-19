@@ -1,10 +1,10 @@
-# spring-boot-demo-dubbo
+# spring-boot-start-dubbo
 
 > 此 demo 主要演示了 Spring Boot 如何集成 Dubbo，demo 分了3个module，分别为公共模块 `spring-boot-demo-dubbo-common`、服务提供方`spring-boot-demo-dubbo-provider`、服务调用方`spring-boot-demo-dubbo-consumer`
 
 ## 注意
 
-本例注册中心使用的是 zookeeper，作者编写本demo时，采用docker方式运行 zookeeper
+本例注册中心使用的是 zookeeper，使用用docker方式运行 zookeeper
 
 1. 下载镜像：`docker pull wurstmeister/zookeeper`
 
@@ -16,8 +16,8 @@
 
 ## 运行步骤
 
-1. 进入服务提供方 `spring-boot-demo-dubbo-provider` 目录，运行 `SpringBootDemoDubboProviderApplication.java`
-2. 进入服务调用方 `spring-boot-demo-dubbo-consumer` 目录，运行 `SpringBootDemoDubboConsumerApplication.java`
+1. 进入服务提供方 `spring-boot-start-dubbo-provider` 目录，运行 `DubboProviderApplication.java`
+2. 进入服务调用方 `spring-boot-start-dubbo-consumer` 目录，运行 `DubboConsumerApplication.java`
 3. 打开浏览器输入 http://localhost:8080/demo/sayHello ，观察浏览器输出，以及服务提供方和服务调用方的控制台输出日志情况
 
 ## pom.xml
@@ -31,17 +31,17 @@
     <artifactId>spring-boot-demo-dubbo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>spring-boot-demo-dubbo-common</module>
-        <module>spring-boot-demo-dubbo-provider</module>
-        <module>spring-boot-demo-dubbo-consumer</module>
+        <module>spring-boot-start-dubbo-common</module>
+        <module>spring-boot-start-dubbo-provider</module>
+        <module>spring-boot-start-dubbo-consumer</module>
     </modules>
     <packaging>pom</packaging>
 
-    <name>spring-boot-demo-dubbo</name>
+    <name>spring-boot-start-dubbo</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>com.xkcoding</groupId>
+        <groupId>com.gqzdev</groupId>
         <artifactId>spring-boot-demo</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>

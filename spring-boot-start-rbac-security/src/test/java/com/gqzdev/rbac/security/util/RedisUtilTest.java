@@ -1,8 +1,7 @@
 package com.gqzdev.rbac.security.util;
 
 import cn.hutool.json.JSONUtil;
-import com.gqzdev.rbac.security.SpringBootDemoRbacSecurityApplicationTests;
-import com.gqzdev.rbac.security.SpringBootDemoRbacSecurityApplicationTests;
+import com.gqzdev.rbac.security.RbacSecurityApplicationTests;
 import com.gqzdev.rbac.security.common.Consts;
 import com.gqzdev.rbac.security.common.PageResult;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @modified: yangkai.shen
  */
 @Slf4j
-public class RedisUtilTest extends SpringBootDemoRbacSecurityApplicationTests {
+public class RedisUtilTest extends RbacSecurityApplicationTests {
     @Autowired
     private RedisUtil redisUtil;
 

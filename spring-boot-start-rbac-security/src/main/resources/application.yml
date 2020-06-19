@@ -41,7 +41,7 @@ spring:
         min-idle: 0
 jwt:
   config:
-    key: xkcoding
+    key: gqzdev
     ttl: 600000
     remember: 604800000
 logging:

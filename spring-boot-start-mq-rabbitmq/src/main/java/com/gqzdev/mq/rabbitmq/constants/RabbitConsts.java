@@ -46,12 +46,12 @@ public interface RabbitConsts {
 
 
     /**
-     * 延迟队列
+     * 延迟队列   delay_queue
      */
     String DELAY_QUEUE = "delay.queue";
 
     /**
-     * 延迟队列交换器
+     * 延迟队列交换器   delay_mode_queue
      */
     String DELAY_MODE_QUEUE = "delay.mode";
 }

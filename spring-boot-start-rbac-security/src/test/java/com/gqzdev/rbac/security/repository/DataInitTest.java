@@ -3,7 +3,7 @@ package com.gqzdev.rbac.security.repository;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Snowflake;
-import com.gqzdev.rbac.security.SpringBootDemoRbacSecurityApplicationTests;
+import com.gqzdev.rbac.security.RbacSecurityApplicationTests;
 import com.gqzdev.rbac.security.model.*;
 import com.gqzdev.rbac.security.model.unionkey.RolePermissionKey;
 import com.gqzdev.rbac.security.model.unionkey.UserRoleKey;
@@ -24,7 +24,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @version: V1.0
  * @modified: yangkai.shen
  */
-public class DataInitTest extends SpringBootDemoRbacSecurityApplicationTests {
+public class DataInitTest extends RbacSecurityApplicationTests {
     @Autowired
     private UserDao userDao;
 

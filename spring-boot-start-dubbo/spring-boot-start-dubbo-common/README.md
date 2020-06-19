@@ -1,4 +1,4 @@
-# spring-boot-demo-dubbo-common
+# spring-boot-start-dubbo-common
 
 > 此 module 主要是用于公共部分，主要存放工具类，实体，以及服务提供方/调用方的接口定义
 
@@ -10,13 +10,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-boot-demo-dubbo</artifactId>
-        <groupId>com.xkcoding</groupId>
+        <artifactId>spring-boot-start-dubbo</artifactId>
+        <groupId>com.gqzdev</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo-dubbo-common</artifactId>
+    <artifactId>spring-boot-start-dubbo-common</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +27,7 @@
     <build>
         <finalName>spring-boot-demo-dubbo-common</finalName>
     </build>
-    
+
 </project>
 ```
 
@@ -35,17 +35,7 @@
 
 ```java
 /**
- * <p>
  * Hello服务接口
- * </p>
- *
- * @package: com.xkcoding.dubbo.common.service
- * @description: Hello服务接口
- * @author: yangkai.shen
- * @date: Created in 2018-12-25 16:56
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
  */
 public interface HelloService {
     /**

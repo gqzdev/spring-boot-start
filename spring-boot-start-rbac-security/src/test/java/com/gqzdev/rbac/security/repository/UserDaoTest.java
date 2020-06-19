@@ -1,6 +1,6 @@
 package com.gqzdev.rbac.security.repository;
 
-import com.gqzdev.rbac.security.SpringBootDemoRbacSecurityApplicationTests;
+import com.gqzdev.rbac.security.RbacSecurityApplicationTests;
 import com.gqzdev.rbac.security.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * <p>
@@ -25,7 +24,7 @@ import java.util.Optional;
  * @modified: yangkai.shen
  */
 @Slf4j
-public class UserDaoTest extends SpringBootDemoRbacSecurityApplicationTests {
+public class UserDaoTest extends RbacSecurityApplicationTests {
     @Autowired
     private UserDao userDao;
 
