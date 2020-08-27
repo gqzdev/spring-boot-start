@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo-task</artifactId>
+    <artifactId>spring-boot-gqzdev-task</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-demo-task</name>
+    <name>spring-boot-start-task</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -52,7 +52,7 @@
     </dependencies>
 
     <build>
-        <finalName>spring-boot-demo-task</finalName>
+        <finalName>spring-boot-start-task</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

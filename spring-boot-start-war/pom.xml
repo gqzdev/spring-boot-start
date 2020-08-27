@@ -8,7 +8,7 @@
   <!-- 若需要打成 war 包，则需要将打包方式改成 war -->
   <packaging>war</packaging>
 
-  <name>spring-boot-demo-war</name>
+  <name>spring-boot-start-war</name>
   <description>Demo project for Spring Boot</description>
 
   <parent>
