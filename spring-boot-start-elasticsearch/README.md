@@ -1,10 +1,12 @@
-# spring-boot-demo-elasticsearch
+# spring-boot-start-elasticsearch
 
-> 此 demo 主要演示了 Spring Boot 如何集成 `spring-boot-starter-data-elasticsearch` 完成对 ElasticSearch 的高级使用技巧，包括创建索引、配置映射、删除索引、增删改查基本操作、复杂查询、高级查询、聚合查询等。
+> Spring Boot 如何集成 `spring-boot-starter-data-elasticsearch` 完成对 ElasticSearch 的高级使用技巧，包括创建索引、配置映射、删除索引、增删改查基本操作、复杂查询、高级查询、聚合查询等。
 
 ## 注意
 
-作者编写本demo时，ElasticSearch版本为 `6.5.3`，使用 docker 运行，下面是所有步骤：
+作者编写时，ElasticSearch版本为 `6.5.3`，【现在已经更新到7.0.x，有许多新特性的变动，后面有时间再更新一个新版本】
+
+使用 docker 运行，下面是所有步骤：
 
 1. 下载镜像：`docker pull elasticsearch:6.5.3`
 
@@ -14,10 +16,11 @@
 
 4. 安装 ik 分词器：`./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.5.3/elasticsearch-analysis-ik-6.5.3.zip`
 
-5. 修改 es 配置文件：`vi ./config/elasticsearch.yml
+5. 修改 es 配置文件：`vi  ./config/elasticsearch.yml
 
    ```yaml
    cluster.name: "docker-cluster"
+   # 允许远程ip连接
    network.host: 0.0.0.0
    
    # minimum_master_nodes need to be explicitly set when bound on a public IP
@@ -48,12 +51,12 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-demo-elasticsearch</name>
+    <name>spring-boot-start-elasticsearch</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>com.xkcoding</groupId>
-        <artifactId>spring-boot-demo</artifactId>
+        <groupId>com.gqzdev</groupId>
+        <artifactId>spring-boot-start</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
@@ -124,13 +127,11 @@
  * 用户实体类
  * </p>
  *
- * @package: com.xkcoding.elasticsearch.model
+ * @package: com.gqzdev.elasticsearch.model
  * @description: 用户实体类
- * @author: yangkai.shen
  * @date: Created in 2018-12-20 17:29
  * @copyright: Copyright (c) 2018
  * @version: V1.0
- * @modified: yangkai.shen
  */
 @Document(indexName = EsConsts.INDEX_NAME, type = EsConsts.TYPE_NAME, shards = 1, replicas = 0)
 @Data
@@ -183,13 +184,12 @@ public class Person {
  * 用户持久层
  * </p>
  *
- * @package: com.xkcoding.elasticsearch.repository
+ * @package: com.gqzdev.elasticsearch.repository
  * @description: 用户持久层
- * @author: yangkai.shen
+ * @author: gqzdev
  * @date: Created in 2018-12-20 19:00
  * @copyright: Copyright (c) 2018
  * @version: V1.0
- * @modified: yangkai.shen
  */
 public interface PersonRepository extends ElasticsearchRepository<Person, Long> {
 
@@ -214,13 +214,12 @@ public interface PersonRepository extends ElasticsearchRepository<Person, Long> 
  * 测试 ElasticTemplate 的创建/删除
  * </p>
  *
- * @package: com.xkcoding.elasticsearch.template
+ * @package: com.gqzdev.elasticsearch.template
  * @description: 测试 ElasticTemplate 的创建/删除
- * @author: yangkai.shen
+ * @author: gqzdev
  * @date: Created in 2018-12-20 17:46
  * @copyright: Copyright (c) 2018
  * @version: V1.0
- * @modified: yangkai.shen
  */
 public class TemplateTest extends SpringBootDemoElasticsearchApplicationTests {
     @Autowired
@@ -258,13 +257,12 @@ public class TemplateTest extends SpringBootDemoElasticsearchApplicationTests {
  * 测试 Repository 操作ES
  * </p>
  *
- * @package: com.xkcoding.elasticsearch.repository
+ * @package: com.gqzdev.elasticsearch.repository
  * @description: 测试 Repository 操作ES
- * @author: yangkai.shen
+ * @author: gqzdev
  * @date: Created in 2018-12-20 19:03
  * @copyright: Copyright (c) 2018
  * @version: V1.0
- * @modified: yangkai.shen
  */
 @Slf4j
 public class PersonRepositoryTest extends SpringBootDemoElasticsearchApplicationTests {

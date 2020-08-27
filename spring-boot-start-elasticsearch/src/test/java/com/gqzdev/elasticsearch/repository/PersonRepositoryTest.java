@@ -29,13 +29,12 @@ import java.util.List;
  * 测试 Repository 操作ES
  * </p>
  *
- * @package: com.xkcoding.elasticsearch.repository
+ * @package: com.gqzdev.elasticsearch.repository
  * @description: 测试 Repository 操作ES
- * @author: yangkai.shen
+ * @author: ganquanzhong
  * @date: Created in 2018-12-20 19:03
  * @copyright: Copyright (c) 2018
  * @version: V1.0
- * @modified: yangkai.shen
  */
 @Slf4j
 public class PersonRepositoryTest extends ElasticsearchApplicationTests {
