@@ -1,6 +1,6 @@
 # spring-boot-demo-orm-mybatis-plus
 
-> 此 demo 演示了 Spring Boot 如何集成 mybatis-plus，简化Mybatis开发，带给你难以置信的开发体验。
+> Spring Boot 如何集成 mybatis-plus，简化Mybatis开发，带给你难以置信的开发体验。
 
 ## pom.xml
 
@@ -10,15 +10,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo-orm-mybatis-plus</artifactId>
+    <artifactId>spring-boot-start-orm-mybatis-plus</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
-    <name>spring-boot-demo-orm-mybatis-plus</name>
+    <name>spring-boot-start-orm-mybatis-plus</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>com.xkcoding</groupId>
+        <groupId>com.gqzdev</groupId>
         <artifactId>spring-boot-demo</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
@@ -100,7 +99,7 @@
  * @modified: yangkai.shen
  */
 @Configuration
-@MapperScan(basePackages = {"com.xkcoding.orm.mybatis.plus.mapper"})
+@MapperScan(basePackages = {"com.gqzdev.orm.mybatis.plus.mapper"})
 @EnableTransactionManagement
 public class MybatisPlusConfig {
     /**
@@ -124,7 +123,7 @@ public class MybatisPlusConfig {
 ## CommonFieldHandler.java
 
 ```java
-package com.xkcoding.orm.mybatis.plus.config;
+package com.gqzdev.orm.mybatis.plus.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;

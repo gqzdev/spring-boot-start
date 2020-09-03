@@ -12,7 +12,7 @@ import java.util.Date;
  * 通用字段填充
  * </p>
  *
- * @package: com.xkcoding.orm.mybatis.plus.config
+ * @package: com.gqzdev.orm.mybatis.plus.config
  * @description: 通用字段填充
  * @author: yangkai.shen
  * @date: Created in 2018/11/8 17:40

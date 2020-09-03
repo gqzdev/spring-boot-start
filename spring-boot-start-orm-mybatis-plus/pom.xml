@@ -64,7 +64,7 @@
     </dependencies>
 
     <build>
-        <finalName>spring-boot-demo-orm-mybatis-plus</finalName>
+        <finalName>spring-boot-start-orm-mybatis-plus</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

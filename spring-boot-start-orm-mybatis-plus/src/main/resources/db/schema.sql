@@ -10,4 +10,4 @@ CREATE TABLE `orm_user` (
   `create_time` DATETIME NOT NULL DEFAULT NOW() COMMENT '创建时间',
   `last_login_time` DATETIME DEFAULT NULL COMMENT '上次登录时间',
   `last_update_time` DATETIME NOT NULL DEFAULT NOW() COMMENT '上次更新时间'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Spring Boot Demo Orm 系列示例表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Spring Boot Start Orm 系列示例表';
