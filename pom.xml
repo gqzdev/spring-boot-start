@@ -74,6 +74,7 @@
     <module>spring-boot-start-ldap</module>
     <module>spring-boot-start-dynamic-datasource</module>
     <module>spring-boot-start-logback</module>
+    <module>spring-boot-start-mybatisplus</module>
   </modules>
   <packaging>pom</packaging>
 
